@@ -1,0 +1,49 @@
+---
+import type { SiteContent } from '@/content/site'
+
+interface Props {
+  platform: SiteContent['platform']
+}
+
+const { platform } = Astro.props
+---
+
+<section id="platform" class="border-t border-ink/5 dark:border-paper/10">
+  <div class="container-prose py-20 md:py-28">
+    <p class="section-eyebrow mb-3">{platform.eyebrow}</p>
+    <span class="accent-rule mb-6 block"></span>
+
+    <p class="max-w-prose text-lg text-ink/75 dark:text-paper/75 leading-relaxed mb-14">
+      {platform.lead}
+    </p>
+
+    <div class="grid gap-10 md:grid-cols-3">
+      {
+        platform.items.map((item) => (
+          <article class="space-y-3 border-t border-ink/10 dark:border-paper/10 pt-6">
+            <h3 class="font-serif text-2xl leading-tight">{item.title}</h3>
+            <p class="text-ink/70 dark:text-paper/70 leading-relaxed">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-16 border-t border-ink/10 dark:border-paper/10 pt-10">
+      <h3 class="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-6">
+        {platform.qualityTitle}
+      </h3>
+      <ul class="grid gap-3 sm:grid-cols-2 text-sm text-ink/75 dark:text-paper/75">
+        {
+          platform.quality.map((entry) => (
+            <li class="flex gap-3 leading-relaxed">
+              <span class="text-accent shrink-0" aria-hidden="true">
+                &mdash;
+              </span>
+              <span>{entry}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+---
+import type { SiteContent } from '@/content/site'
+
+interface Props {
+  contact: SiteContent['contact']
+}
+
+const { contact } = Astro.props
+---
+
+<section id="contact" class="border-t border-ink/5 dark:border-paper/10 bg-paper-soft/40 dark:bg-ink-soft/40">
+  <div class="container-prose py-20 md:py-32">
+    <p class="section-eyebrow mb-3">{contact.eyebrow}</p>
+    <span class="accent-rule mb-10 block"></span>
+
+    <p class="max-w-prose text-xl md:text-2xl font-serif leading-snug mb-12">
+      {contact.lead}
+    </p>
+
+    <ul class="space-y-4 text-lg">
+      {
+        contact.links.map((link) => (
+          <li class="flex items-baseline gap-4">
+            <span class="font-mono text-xs uppercase tracking-[0.2em] text-ink/50 dark:text-paper/50 w-20 shrink-0">
+              {link.label}
+            </span>
+            <a
+              href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
+              class="link-underline hover:text-accent"
+            >
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

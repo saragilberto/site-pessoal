@@ -1,0 +1,55 @@
+---
+import type { SiteContent } from '@/content/site'
+
+interface Props {
+  work: SiteContent['work']
+}
+
+const { work } = Astro.props
+---
+
+<section id="work" class="border-t border-ink/5 dark:border-paper/10 bg-paper-soft/40 dark:bg-ink-soft/40">
+  <div class="container-prose py-20 md:py-28">
+    <p class="section-eyebrow mb-3">{work.eyebrow}</p>
+    <span class="accent-rule mb-6 block"></span>
+
+    <p class="max-w-prose text-sm text-ink/60 dark:text-paper/60 italic mb-14">
+      {work.disclaimer}
+    </p>
+
+    <div class="space-y-12">
+      {
+        work.cases.map((item) => (
+          <article class="grid gap-6 md:grid-cols-12 md:gap-10 border-t border-ink/10 dark:border-paper/10 pt-12 first:border-t-0 first:pt-0">
+            <div class="md:col-span-3">
+              <p class="font-mono text-xs text-accent mb-2">{item.n}</p>
+              <p class="font-mono text-xs uppercase tracking-[0.15em] text-ink/50 dark:text-paper/50">
+                {item.sector}
+              </p>
+            </div>
+
+            <div class="md:col-span-9 space-y-5">
+              <h3 class="font-serif text-2xl md:text-3xl leading-tight">{item.title}</h3>
+
+              <p class="text-ink/75 dark:text-paper/75 leading-relaxed max-w-prose">{item.body}</p>
+
+              {item.proof && (
+                <p class="border-l-2 border-accent/40 pl-4 text-sm text-ink/70 dark:text-paper/70 leading-relaxed max-w-prose">
+                  {item.proof}
+                </p>
+              )}
+
+              <ul class="flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-ink/60 dark:text-paper/60">
+                {item.tags.map((tag) => <li>&middot; {tag}</li>)}
+              </ul>
+
+              <p class="font-mono text-xs uppercase tracking-[0.15em] text-ink/50 dark:text-paper/50 pt-2">
+                {item.roles}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+---
+/**
+ * Corpo unico das duas versoes do site.
+ *
+ * PT e EN renderizam exatamente esta arvore; a unica diferenca entre elas
+ * e o objeto de conteudo que chega por props.
+ */
+import type { SiteContent } from '@/content/site'
+import Header from './Header.astro'
+import Hero from './Hero.astro'
+import Stats from './Stats.astro'
+import Approach from './Approach.astro'
+import Work from './Work.astro'
+import Platform from './Platform.astro'
+import Stack from './Stack.astro'
+import About from './About.astro'
+import Contact from './Contact.astro'
+import Footer from './Footer.astro'
+
+interface Props {
+  content: SiteContent
+}
+
+const { content } = Astro.props
+---
+
+<Header nav={content.nav} />
+
+<main>
+  <Hero hero={content.hero} />
+  <Stats stats={content.stats} />
+  <Approach approach={content.approach} />
+  <Work work={content.work} />
+  <Platform platform={content.platform} />
+  <Stack stack={content.stack} />
+  <About about={content.about} />
+  <Contact contact={content.contact} />
+</main>
+
+<Footer footer={content.footer} />

@@ -1,0 +1,37 @@
+---
+import type { SiteContent } from '@/content/site'
+
+interface Props {
+  nav: SiteContent['nav']
+}
+
+const { nav } = Astro.props
+const links = [
+  { href: '#work', label: nav.work },
+  { href: '#platform', label: nav.platform },
+  { href: '#stack', label: nav.stack },
+  { href: '#about', label: nav.about },
+  { href: '#contact', label: nav.contact },
+]
+---
+
+<header
+  class="sticky top-0 z-30 border-b border-ink/5 dark:border-paper/10 bg-paper/80 dark:bg-ink/80 backdrop-blur"
+>
+  <div class="container-prose flex h-16 items-center justify-between">
+    <a href={nav.switchHref === '/' ? '/en/' : '/'} class="font-serif text-lg tracking-tight">
+      sara<span class="text-accent">.</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm">
+      {links.map((link) => <a href={link.href} class="link-underline">{link.label}</a>)}
+    </nav>
+
+    <a
+      href={nav.switchHref}
+      class="font-mono text-xs uppercase tracking-[0.2em] text-ink/60 dark:text-paper/60 hover:text-accent transition-colors"
+    >
+      {nav.switchLabel}
+    </a>
+  </div>
+</header>

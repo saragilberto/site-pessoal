@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+
+  body {
+    @apply bg-paper text-ink dark:bg-ink dark:text-paper;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer components {
+  .container-prose {
+    @apply mx-auto w-full max-w-5xl px-6 md:px-8;
+  }
+
+  .section-eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-ink/60 dark:text-paper/60;
+  }
+
+  .accent-rule {
+    @apply h-px w-12 bg-accent;
+  }
+
+  /* Sublinhado que cresce da esquerda no hover. */
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-px w-full origin-left scale-x-0
+           bg-current transition-transform duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply scale-x-100;
+  }
+
+  /* Cartao de metrica da faixa de numeros. */
+  .stat-value {
+    @apply font-serif text-4xl md:text-5xl leading-none tracking-tight;
+  }
+
+  .stat-label {
+    @apply font-mono text-xs uppercase tracking-[0.15em] text-ink/55 dark:text-paper/55 leading-relaxed;
+  }
+}

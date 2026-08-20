@@ -1,0 +1,46 @@
+---
+import type { SiteContent } from '@/content/site'
+
+interface Props {
+  hero: SiteContent['hero']
+}
+
+const { hero } = Astro.props
+---
+
+<section class="relative">
+  <div class="container-prose pt-24 pb-20 md:pt-36 md:pb-32">
+    <p class="section-eyebrow mb-6">{hero.eyebrow}</p>
+
+    <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl leading-[1.05] tracking-tight max-w-4xl">
+      {hero.headline}
+    </h1>
+
+    <p class="mt-8 max-w-prose text-lg md:text-xl text-ink/70 dark:text-paper/70 leading-relaxed">
+      {hero.lead}
+    </p>
+
+    <div class="mt-12 flex flex-wrap items-center gap-4">
+      <a
+        href="#work"
+        class="inline-flex items-center gap-2 bg-ink text-paper dark:bg-paper dark:text-ink px-5 py-2.5 text-sm font-medium hover:bg-accent hover:text-ink dark:hover:bg-accent dark:hover:text-ink transition-colors"
+      >
+        {hero.ctaPrimary}
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 border border-ink/20 dark:border-paper/20 px-5 py-2.5 text-sm font-medium hover:border-accent hover:text-accent transition-colors"
+      >
+        {hero.ctaSecondary}
+      </a>
+    </div>
+
+    <div class="mt-10 flex items-center gap-3">
+      <span class="accent-rule"></span>
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-ink/60 dark:text-paper/60">
+        {hero.availability}
+      </p>
+    </div>
+  </div>
+</section>

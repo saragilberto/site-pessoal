@@ -1,0 +1,29 @@
+---
+import type { SiteContent } from '@/content/site'
+
+interface Props {
+  stats: SiteContent['stats']
+}
+
+const { stats } = Astro.props
+---
+
+<section class="border-t border-ink/5 dark:border-paper/10 bg-paper-soft/40 dark:bg-ink-soft/40">
+  <div class="container-prose py-16 md:py-20">
+    <p class="section-eyebrow mb-3">{stats.eyebrow}</p>
+    <span class="accent-rule mb-12 block"></span>
+
+    <dl class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        stats.items.map((stat) => (
+          /* col-reverse deixa o rotulo antes do valor no DOM (ordem que o
+             leitor de tela espera num dl) e abaixo dele na tela. */
+          <div class="flex flex-col-reverse gap-3">
+            <dt class="stat-label">{stat.label}</dt>
+            <dd class="stat-value text-accent">{stat.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import type { SiteContent } from '@/content/site'
+
+interface Props {
+  approach: SiteContent['approach']
+}
+
+const { approach } = Astro.props
+---
+
+<section class="border-t border-ink/5 dark:border-paper/10">
+  <div class="container-prose py-20 md:py-28">
+    <p class="section-eyebrow mb-3">{approach.eyebrow}</p>
+    <span class="accent-rule mb-12 block"></span>
+
+    <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        approach.items.map((item) => (
+          <article class="space-y-3">
+            <p class="font-mono text-xs text-accent">{item.n}</p>
+            <h3 class="font-serif text-2xl">{item.title}</h3>
+            <p class="text-ink/70 dark:text-paper/70 leading-relaxed">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

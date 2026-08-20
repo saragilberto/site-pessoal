@@ -1,0 +1,20 @@
+---
+import type { SiteContent } from '@/content/site'
+
+interface Props {
+  about: SiteContent['about']
+}
+
+const { about } = Astro.props
+---
+
+<section id="about" class="border-t border-ink/5 dark:border-paper/10">
+  <div class="container-prose py-20 md:py-28">
+    <p class="section-eyebrow mb-3">{about.eyebrow}</p>
+    <span class="accent-rule mb-12 block"></span>
+
+    <div class="max-w-prose space-y-6 text-lg text-ink/80 dark:text-paper/80 leading-relaxed">
+      {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </div>
+</section>

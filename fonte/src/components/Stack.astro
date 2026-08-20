@@ -1,0 +1,31 @@
+---
+import type { SiteContent } from '@/content/site'
+
+interface Props {
+  stack: SiteContent['stack']
+}
+
+const { stack } = Astro.props
+---
+
+<section id="stack" class="border-t border-ink/5 dark:border-paper/10 bg-paper-soft/40 dark:bg-ink-soft/40">
+  <div class="container-prose py-20 md:py-28">
+    <p class="section-eyebrow mb-3">{stack.eyebrow}</p>
+    <span class="accent-rule mb-12 block"></span>
+
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      {
+        stack.groups.map((group) => (
+          <div>
+            <h3 class="font-mono text-xs uppercase tracking-[0.2em] text-accent mb-4">
+              {group.title}
+            </h3>
+            <ul class="space-y-2 text-sm text-ink/75 dark:text-paper/75">
+              {group.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
