@@ -171,7 +171,7 @@ export const pt: SiteContent = {
       {
         n: 'CASE / 03',
         sector: 'Tributário',
-        title: 'Fiscalização fiscal municipal',
+        title: 'Fiscalização tributária municipal',
         body: 'Cruzamento de notas fiscais de serviço, RPS sem NFS-e correspondente e extrato PGDAS da Receita Federal num cubo de faturamento com medidas propagadas. Domínio onde uma regra mal implementada não gera bug: gera autuação indevida.',
         tags: ['Laravel modular', 'PostgreSQL multi-tenant', 'Vue 3 + Inertia', 'Cubo de faturamento'],
         roles: 'Backend · Frontend · Regra fiscal',
@@ -242,9 +242,10 @@ export const pt: SiteContent = {
     eyebrow: 'Sobre',
     paragraphs: [
       'Engenheira de software com foco em plataformas SaaS de domínio complexo. Trabalho com Laravel, Vue 3 e PostgreSQL multi-tenant em produtos rodando em produção nos setores de compras públicas, gestão municipal, tributário, folha de pagamento e serviços ao cidadão.',
+      'Cheguei aqui por um caminho torto. Fui personal trainer, morei fora entre 2014 e 2018 trabalhando em hostels no Chile e na Noruega, e liderei uma equipe de coaches de CrossFit por três anos. Entrei na empresa onde estou hoje em 2021, numa função administrativa; virei desenvolvedora em 2024 e hoje coordeno o setor de inovação.',
+      'Treinar pessoas ensina uma coisa que serve para software: você responde pelo resultado de outra pessoa, e um erro de julgamento tem consequência física. É de onde vem meu incômodo com sistema que passa nos testes mas que ninguém abriu na tela.',
       'Consolidei produtos que nasceram separados numa plataforma técnica coerente: mesma arquitetura modular, mesmo modelo de isolamento por tenant, mesmo design system, mesmos gates de qualidade. É isso que me permite entregar feature nova em qualquer um deles sem reaprender o terreno.',
-      'Trabalho com agentes de IA integrados ao produto via MCP — não como camada de marketing, mas como interface real de operação, com as mesmas permissões e o mesmo escopo de tenant que a interface gráfica.',
-      'Também supervisiono um estagiário e escrevo a documentação de onboarding dos produtos. Parte do meu trabalho é fazer com que outra pessoa consiga entrar no código sem precisar me perguntar.',
+      'Trabalho com agentes de IA integrados ao produto via MCP — não como camada de marketing, mas como interface real de operação, com as mesmas permissões e o mesmo escopo de tenant que a interface gráfica. Também supervisiono um estagiário e escrevo a documentação de onboarding: parte do meu trabalho é fazer com que outra pessoa consiga entrar no código sem precisar me perguntar.',
     ],
   },
   contact: {
@@ -417,9 +418,10 @@ export const en: SiteContent = {
     eyebrow: 'About',
     paragraphs: [
       'Software engineer focused on SaaS platforms in complex domains. I work with Laravel, Vue 3 and multi-tenant PostgreSQL on products running in production across public procurement, municipal government, tax, payroll and citizen services.',
+      'I got here by a crooked path. I was a personal trainer, lived abroad between 2014 and 2018 working in hostels in Chile and Norway, and led a CrossFit coaching team for three years. I joined the company I am at today in 2021, in an administrative role; I moved into development in 2024 and now I lead its innovation team.',
+      'Coaching people teaches something that carries straight into software: you answer for someone else\'s outcome, and a lapse in judgement has physical consequences. That is where my discomfort comes from with a system that passes its tests but that nobody has ever opened on screen.',
       'I consolidated products that started out separate into one coherent technical platform: the same modular architecture, the same tenant isolation model, the same design system, the same quality gates. That is what lets me ship a new feature in any of them without relearning the terrain.',
-      'I work with AI agents integrated into the product through MCP — not as a marketing layer, but as a real operating interface, with the same permissions and the same tenant scope as the graphical interface.',
-      'I also supervise an intern and write the onboarding documentation for the products. Part of my job is making sure someone else can get into the code without having to ask me.',
+      'I work with AI agents integrated into the product through MCP — not as a marketing layer, but as a real operating interface, with the same permissions and the same tenant scope as the graphical interface. I also supervise an intern and write the onboarding documentation: part of my job is making sure someone else can get into the code without having to ask me.',
     ],
   },
   contact: {
