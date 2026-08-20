@@ -3,10 +3,6 @@
  *
  * Alimenta as paginas /cv/ e /en/cv/ e, por elas, os PDFs gerados em
  * scripts/cv-pdf.mjs. Fonte unica: nao existe versao do CV fora daqui.
- *
- * PENDENTE — datas que a Sara ainda precisa confirmar estao marcadas com
- * o prefixo `A CONFIRMAR`. Elas aparecem no PDF de proposito, para nao
- * passarem batidas.
  */
 
 export interface CvRole {
@@ -43,8 +39,6 @@ export interface CvContent {
   backLabel: string
   backHref: string
 }
-
-const PENDENTE = 'A CONFIRMAR'
 
 /**
  * Empregador.
@@ -84,7 +78,7 @@ export const cvPt: CvContent = {
     {
       title: 'Coordenadora do Setor de Inovação',
       org: EMPREGADOR_PT,
-      period: `${PENDENTE} – atual`,
+      period: 'jan/2026 – atual',
       location: 'Remoto',
       bullets: [
         'Lidero a adoção de IA na empresa: agentes integrados aos produtos via MCP, operando dados reais sob o escopo de permissão de cada tenant — não camada de chat acoplada por fora.',
@@ -96,7 +90,7 @@ export const cvPt: CvContent = {
     {
       title: 'Desenvolvedora de Software',
       org: EMPREGADOR_PT,
-      period: `abr/2024 – ${PENDENTE}`,
+      period: 'abr/2024 – jan/2026',
       location: 'Remoto',
       bullets: [
         'Seis produtos multi-tenant em produção sobre a mesma base técnica: SaaS B2G de licitações, ERP de gestão municipal, fiscalização tributária, hub de suporte, aplicativo mobile e o template base compartilhado.',
@@ -110,7 +104,7 @@ export const cvPt: CvContent = {
     {
       title: 'Assistente Administrativa',
       org: EMPREGADOR_PT,
-      period: `${PENDENTE} – abr/2024`,
+      period: '2021 – abr/2024',
       bullets: [
         'Rotinas administrativas da empresa, com transição para a área técnica ao longo da graduação em Análise e Desenvolvimento de Sistemas.',
       ],
@@ -121,7 +115,7 @@ export const cvPt: CvContent = {
     {
       title: 'Head Coach',
       org: 'CrossFit',
-      period: PENDENTE,
+      period: '2017 – 2020',
       bullets: [
         'Liderança de equipe técnica, planejamento de treino e acompanhamento de alunos.',
       ],
@@ -178,7 +172,7 @@ export const cvEn: CvContent = {
     {
       title: 'Innovation Lead',
       org: EMPREGADOR_EN,
-      period: `${PENDENTE} – present`,
+      period: 'Jan 2026 – present',
       location: 'Remote',
       bullets: [
         'I lead AI adoption across the company: agents built into the products through MCP, operating on real data under each tenant permission scope — not a chat layer bolted on the side.',
@@ -190,7 +184,7 @@ export const cvEn: CvContent = {
     {
       title: 'Software Developer',
       org: EMPREGADOR_EN,
-      period: `Apr 2024 – ${PENDENTE}`,
+      period: 'Apr 2024 – Jan 2026',
       location: 'Remote',
       bullets: [
         'Six multi-tenant products in production on the same technical foundation: a B2G tendering SaaS, a municipal government ERP, tax auditing, a support hub, a mobile app and the shared base template.',
@@ -204,7 +198,7 @@ export const cvEn: CvContent = {
     {
       title: 'Administrative Assistant',
       org: EMPREGADOR_EN,
-      period: `${PENDENTE} – Apr 2024`,
+      period: '2021 – Apr 2024',
       bullets: [
         'Company administrative routines, moving into the technical team over the course of my Systems Analysis and Development degree.',
       ],
@@ -215,7 +209,7 @@ export const cvEn: CvContent = {
     {
       title: 'Head Coach',
       org: 'CrossFit',
-      period: PENDENTE,
+      period: '2017 – 2020',
       bullets: ['Leading a coaching team, training programming and athlete development.'],
     },
     {
