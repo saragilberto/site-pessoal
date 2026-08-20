@@ -120,7 +120,7 @@ export const cvPt: CvContent = {
     {
       title: 'Voluntária em hostels',
       org: 'Chile e Noruega',
-      period: 'PERIODO A CONFIRMAR',
+      period: '2014 – 2018',
       bullets: [
         'Vivi e trabalhei fora do país em dois contextos distintos, em espanhol e em inglês, convivendo diariamente com equipes e hóspedes de várias nacionalidades.',
         'Rotina de operação de hospedagem: recepção, organização do espaço e resolução de imprevisto com pouco recurso e em língua estrangeira.',
@@ -224,7 +224,7 @@ export const cvEn: CvContent = {
     {
       title: 'Hostel volunteer',
       org: 'Chile and Norway',
-      period: 'PERIOD TBC',
+      period: '2014 – 2018',
       bullets: [
         'Lived and worked abroad in two different settings, in Spanish and in English, alongside staff and guests from many nationalities.',
         'Day-to-day hospitality operations: front desk, keeping the space running and solving problems with few resources and in a foreign language.',
