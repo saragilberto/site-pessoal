@@ -8,6 +8,15 @@
 
 set -euo pipefail
 
+# O site e publico e o nome do empregador nao pode ser. Se CV_EMPREGADOR
+# estiver setada, o build sai com a versao nomeada do CV — que serve para
+# enviar a um recrutador, nunca para publicar.
+if [[ -n "${CV_EMPREGADOR:-}" ]]; then
+  echo "abortado: CV_EMPREGADOR esta setada (${CV_EMPREGADOR})." >&2
+  echo "essa variavel gera o CV nomeado, que nao vai para o ar." >&2
+  exit 1
+fi
+
 DESTINO="saracg:domains/saracgpereira.com/public_html/"
 
 npm run build

@@ -130,7 +130,9 @@ material levantado, e não aparece em lugar nenhum do site atual.
 
 ## Lacunas a preencher (não derivável do código)
 
-- Anos de experiência e histórico de empregos anteriores
-- Formação acadêmica
-- Nível de inglês
-- Se os nomes SH3 / Licitaê / Fiscalizaê / SIAM / Cidade App podem ser públicos
+- Anos de experiência e histórico de empregos anteriores - assistente administrativa mesma empresa, head coach
+  crossfit antes disso e personal trainer até 2014
+- Formação acadêmica - útima formação em analise e desenvolvimento de sistemas PUCminas, concluido agosto 2025
+- Nível de inglês - ngles fluente, espanhol - iniciate
+- Se os nomes SH3 / Licitaê / Fiscalizaê / SIAM / Cidade App podem ser públicos - Não podem
+ 

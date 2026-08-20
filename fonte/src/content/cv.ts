@@ -46,6 +46,21 @@ export interface CvContent {
 
 const PENDENTE = 'A CONFIRMAR'
 
+/**
+ * Empregador.
+ *
+ * O nome nao pode ser publico, e o PDF fica linkado no site — entao o padrao
+ * e um descritor generico. Para a versao nomeada, que vai direto a um
+ * recrutador em vez de ser publicada:
+ *
+ *   CV_EMPREGADOR="SH3 Sistemas" npm run build
+ *
+ * Os PDFs saem em dist/ com o nome no lugar. Nao rode `npm run deploy` com a
+ * variavel setada, ou a versao nomeada vai para o ar.
+ */
+const EMPREGADOR_PT = process.env.CV_EMPREGADOR ?? 'Empresa de software para o setor público'
+const EMPREGADOR_EN = process.env.CV_EMPREGADOR ?? 'Software company for the public sector'
+
 export const cvPt: CvContent = {
   htmlLang: 'pt-BR',
   meta: {
@@ -68,7 +83,7 @@ export const cvPt: CvContent = {
   roles: [
     {
       title: 'Coordenadora do Setor de Inovação',
-      org: 'SH3 Sistemas',
+      org: EMPREGADOR_PT,
       period: `${PENDENTE} – atual`,
       location: 'Remoto',
       bullets: [
@@ -80,7 +95,7 @@ export const cvPt: CvContent = {
     },
     {
       title: 'Desenvolvedora de Software',
-      org: 'SH3 Sistemas',
+      org: EMPREGADOR_PT,
       period: `abr/2024 – ${PENDENTE}`,
       location: 'Remoto',
       bullets: [
@@ -94,7 +109,7 @@ export const cvPt: CvContent = {
     },
     {
       title: 'Assistente Administrativa',
-      org: 'SH3 Sistemas',
+      org: EMPREGADOR_PT,
       period: `${PENDENTE} – abr/2024`,
       bullets: [
         'Rotinas administrativas da empresa, com transição para a área técnica ao longo da graduação em Análise e Desenvolvimento de Sistemas.',
@@ -162,7 +177,7 @@ export const cvEn: CvContent = {
   roles: [
     {
       title: 'Innovation Lead',
-      org: 'SH3 Sistemas',
+      org: EMPREGADOR_EN,
       period: `${PENDENTE} – present`,
       location: 'Remote',
       bullets: [
@@ -174,7 +189,7 @@ export const cvEn: CvContent = {
     },
     {
       title: 'Software Developer',
-      org: 'SH3 Sistemas',
+      org: EMPREGADOR_EN,
       period: `Apr 2024 – ${PENDENTE}`,
       location: 'Remote',
       bullets: [
@@ -188,7 +203,7 @@ export const cvEn: CvContent = {
     },
     {
       title: 'Administrative Assistant',
-      org: 'SH3 Sistemas',
+      org: EMPREGADOR_EN,
       period: `${PENDENTE} – Apr 2024`,
       bullets: [
         'Company administrative routines, moving into the technical team over the course of my Systems Analysis and Development degree.',
