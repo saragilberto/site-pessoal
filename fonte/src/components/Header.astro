@@ -1,17 +1,23 @@
 ---
-import type { SiteContent } from '@/content/site'
+import type { SiteContent } from '@/data/site'
 
 interface Props {
   nav: SiteContent['nav']
+  /**
+   * Prefixo das ancoras. Vazio na home; nas paginas de texto precisa ser
+   * absoluto ('/en/'), senao '#work' aponta para uma secao que nao existe ali.
+   */
+  base?: string
 }
 
-const { nav } = Astro.props
+const { nav, base = '' } = Astro.props
 const links = [
-  { href: '#work', label: nav.work },
-  { href: '#platform', label: nav.platform },
-  { href: '#stack', label: nav.stack },
-  { href: '#about', label: nav.about },
-  { href: '#contact', label: nav.contact },
+  { href: `${base}#work`, label: nav.work },
+  { href: `${base}#platform`, label: nav.platform },
+  { href: `${base}#stack`, label: nav.stack },
+  { href: '/writing/', label: nav.writing },
+  { href: `${base}#about`, label: nav.about },
+  { href: `${base}#contact`, label: nav.contact },
 ]
 ---
 

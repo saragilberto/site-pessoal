@@ -192,3 +192,87 @@
     break-after: avoid-page;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Corpo dos textos (/writing/)
+
+   Estilo aplicado ao markdown renderizado, que nao passa por classes do
+   Tailwind — por isso vem como descendentes de um wrapper unico.
+   --------------------------------------------------------------------------- */
+@layer components {
+  .prose-note {
+    @apply max-w-prose text-lg leading-relaxed text-ink/80 dark:text-paper/80;
+  }
+
+  .prose-note > * + * {
+    @apply mt-6;
+  }
+
+  .prose-note h2 {
+    @apply font-serif text-3xl leading-tight tracking-tight text-ink dark:text-paper
+           mt-14 mb-0 pt-8 border-t border-ink/10 dark:border-paper/10;
+  }
+
+  .prose-note h3 {
+    @apply font-serif text-2xl leading-snug text-ink dark:text-paper mt-10;
+  }
+
+  .prose-note a {
+    @apply text-accent underline underline-offset-2 decoration-accent/40 hover:decoration-accent;
+  }
+
+  .prose-note strong {
+    @apply font-medium text-ink dark:text-paper;
+  }
+
+  .prose-note ul,
+  .prose-note ol {
+    @apply space-y-2 pl-6;
+  }
+
+  .prose-note ul {
+    @apply list-disc marker:text-accent;
+  }
+
+  .prose-note ol {
+    @apply list-decimal marker:text-accent marker:font-mono marker:text-sm;
+  }
+
+  .prose-note blockquote {
+    @apply border-l-2 border-accent pl-6 italic text-ink/70 dark:text-paper/70;
+  }
+
+  .prose-note code {
+    @apply font-mono text-[0.85em] bg-ink/5 dark:bg-paper/10 px-1.5 py-0.5;
+  }
+
+  .prose-note pre {
+    @apply bg-ink dark:bg-ink-soft text-paper p-5 overflow-x-auto text-sm leading-relaxed;
+  }
+
+  .prose-note pre code {
+    @apply bg-transparent p-0 text-[0.95em];
+  }
+
+  .prose-note hr {
+    @apply border-0 border-t border-ink/10 dark:border-paper/10 my-12;
+  }
+
+  .prose-note table {
+    @apply w-full text-base border-collapse;
+  }
+
+  .prose-note th {
+    @apply text-left font-mono text-xs uppercase tracking-[0.12em] text-ink/50 dark:text-paper/50
+           border-b border-ink/20 dark:border-paper/20 pb-2 pr-4;
+  }
+
+  .prose-note td {
+    @apply align-top border-b border-ink/10 dark:border-paper/10 py-3 pr-4;
+  }
+
+  /* Tabela larga rola dentro do proprio bloco, sem empurrar a pagina. */
+  .prose-note .table-scroll {
+    @apply overflow-x-auto;
+  }
+}

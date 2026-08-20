@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://saracgpereira.com/sitemap.xml
+Sitemap: https://saracgpereira.com/sitemap-index.xml

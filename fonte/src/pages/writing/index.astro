@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content'
+import Writing from '@/layouts/Writing.astro'
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+)
+
+const formatar = (data: Date) =>
+  data.toLocaleDateString('en-GB', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    timeZone: 'UTC',
+  })
+---
+
+<Writing
+  title="Writing — Sara Pereira"
+  description="Notes on multi-tenant architecture, MCP agents in production and proving refactors safe."
+  canonical="https://saracgpereira.com/writing/"
+>
+  <section class="border-b border-ink/5 dark:border-paper/10">
+    <div class="container-prose pt-24 pb-16 md:pt-32 md:pb-20">
+      <p class="section-eyebrow mb-6">Writing</p>
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-tight max-w-3xl">
+        Notes from things that actually shipped.
+      </h1>
+      <p class="mt-8 max-w-prose text-lg text-ink/70 dark:text-paper/70 leading-relaxed">
+        Multi-tenant architecture, MCP agents running inside real products, and how to prove a
+        refactor changed nothing. Written in English, from production, with the client names left out.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container-prose py-16 md:py-20">
+      {
+        posts.length === 0 ? (
+          <p class="max-w-prose text-ink/60 dark:text-paper/60 italic">
+            Nothing published yet — the first piece is being written.
+          </p>
+        ) : (
+          <ul>
+            {posts.map((post) => (
+              <li class="border-t border-ink/10 dark:border-paper/10 first:border-t-0">
+                <a href={`/writing/${post.slug}/`} class="group block py-8 md:py-10">
+                  <div class="grid gap-3 md:grid-cols-12 md:gap-10">
+                    <p class="md:col-span-3 font-mono text-xs uppercase tracking-[0.15em] text-ink/50 dark:text-paper/50 md:pt-2">
+                      <time datetime={post.data.pubDate.toISOString()}>
+                        {formatar(post.data.pubDate)}
+                      </time>
+                    </p>
+                    <div class="md:col-span-9 space-y-3">
+                      <h2 class="font-serif text-2xl md:text-3xl leading-tight group-hover:text-accent transition-colors">
+                        {post.data.title}
+                      </h2>
+                      <p class="text-ink/70 dark:text-paper/70 leading-relaxed max-w-prose">
+                        {post.data.description}
+                      </p>
+                      {post.data.tags.length > 0 && (
+                        <ul class="flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-ink/50 dark:text-paper/50 pt-1">
+                          {post.data.tags.map((tag) => (
+                            <li>&middot; {tag}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </section>
+</Writing>

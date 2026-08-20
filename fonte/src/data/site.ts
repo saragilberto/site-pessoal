@@ -55,6 +55,7 @@ export interface SiteContent {
     work: string
     platform: string
     stack: string
+    writing: string
     about: string
     contact: string
     switchLabel: string
@@ -99,6 +100,7 @@ export const pt: SiteContent = {
     work: 'Trabalho',
     platform: 'Plataforma',
     stack: 'Stack',
+    writing: 'Escrita',
     about: 'Sobre',
     contact: 'Contato',
     switchLabel: 'EN',
@@ -278,6 +280,7 @@ export const en: SiteContent = {
     work: 'Work',
     platform: 'Platform',
     stack: 'Stack',
+    writing: 'Writing',
     about: 'About',
     contact: 'Contact',
     switchLabel: 'PT',
