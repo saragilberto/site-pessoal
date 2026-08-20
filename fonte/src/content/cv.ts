@@ -28,8 +28,6 @@ export interface CvContent {
   summary: string
   experienceTitle: string
   roles: CvRole[]
-  earlierTitle: string
-  earlier: CvRole[]
   educationTitle: string
   education: { title: string; org: string; period: string }[]
   skillsTitle: string
@@ -109,22 +107,32 @@ export const cvPt: CvContent = {
         'Rotinas administrativas da empresa, com transição para a área técnica ao longo da graduação em Análise e Desenvolvimento de Sistemas.',
       ],
     },
-  ],
-  earlierTitle: 'Antes da tecnologia',
-  earlier: [
     {
       title: 'Head Coach',
       org: 'CrossFit',
       period: '2017 – 2020',
       bullets: [
-        'Liderança de equipe técnica, planejamento de treino e acompanhamento de alunos.',
+        'Liderei a equipe de coaches: programação dos treinos, padronização da metodologia e formação dos profissionais que davam aula.',
+        'Responsável pela evolução dos alunos — avaliação inicial, progressão de carga e ajuste individual dentro de turmas coletivas.',
+        'Rotina de decisão sob consequência física direta: um erro de programação ou de correção de movimento machuca alguém. É de onde vem meu rigor com margem de erro.',
+      ],
+    },
+    {
+      title: 'Voluntária em hostels',
+      org: 'Chile e Noruega',
+      period: 'PERIODO A CONFIRMAR',
+      bullets: [
+        'Vivi e trabalhei fora do país em dois contextos distintos, em espanhol e em inglês, convivendo diariamente com equipes e hóspedes de várias nacionalidades.',
+        'Rotina de operação de hospedagem: recepção, organização do espaço e resolução de imprevisto com pouco recurso e em língua estrangeira.',
       ],
     },
     {
       title: 'Personal Trainer',
       org: '',
       period: 'até 2014',
-      bullets: [],
+      bullets: [
+        'Atendimento individual: avaliação, planejamento de longo prazo e acompanhamento continuado de cada aluno.',
+      ],
     },
   ],
   educationTitle: 'Formação',
@@ -203,20 +211,32 @@ export const cvEn: CvContent = {
         'Company administrative routines, moving into the technical team over the course of my Systems Analysis and Development degree.',
       ],
     },
-  ],
-  earlierTitle: 'Before technology',
-  earlier: [
     {
       title: 'Head Coach',
       org: 'CrossFit',
       period: '2017 – 2020',
-      bullets: ['Leading a coaching team, training programming and athlete development.'],
+      bullets: [
+        'Led the coaching team: training programming, methodology standardisation and development of the coaches teaching the classes.',
+        'Accountable for athlete progress — initial assessment, load progression and individual adjustment inside group classes.',
+        'Daily decisions with direct physical consequence: a bad program or an uncorrected movement injures someone. That is where my discipline about margin of error comes from.',
+      ],
+    },
+    {
+      title: 'Hostel volunteer',
+      org: 'Chile and Norway',
+      period: 'PERIOD TBC',
+      bullets: [
+        'Lived and worked abroad in two different settings, in Spanish and in English, alongside staff and guests from many nationalities.',
+        'Day-to-day hospitality operations: front desk, keeping the space running and solving problems with few resources and in a foreign language.',
+      ],
     },
     {
       title: 'Personal Trainer',
       org: '',
       period: 'until 2014',
-      bullets: [],
+      bullets: [
+        'One-to-one coaching: assessment, long-term planning and continuous follow-up for each client.',
+      ],
     },
   ],
   educationTitle: 'Education',

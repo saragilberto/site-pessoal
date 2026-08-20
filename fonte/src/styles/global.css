@@ -73,11 +73,11 @@
   }
 
   .cv-head {
-    @apply border-b border-ink/15 pb-6;
+    @apply border-b border-ink/15 pb-5;
   }
 
   .cv-contacts {
-    @apply mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[12px] text-ink/75;
+    @apply mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[12px] text-ink/75;
   }
 
   .cv-contacts li {
@@ -93,12 +93,12 @@
   }
 
   .cv-section {
-    @apply mt-8;
+    @apply mt-7;
   }
 
   .cv-section-title {
     @apply font-mono text-[10px] uppercase tracking-[0.2em] text-accent
-           border-b border-ink/10 pb-2 mb-5;
+           border-b border-ink/10 pb-2 mb-4;
   }
 
   .cv-summary {
@@ -106,7 +106,7 @@
   }
 
   .cv-role {
-    @apply mt-6 first:mt-0;
+    @apply mt-5 first:mt-0;
     break-inside: avoid;
   }
 
@@ -131,7 +131,7 @@
   }
 
   .cv-bullets {
-    @apply mt-3 space-y-2 text-[12.5px] leading-relaxed text-ink/80;
+    @apply mt-2.5 space-y-1.5 text-[12.5px] leading-[1.55] text-ink/80;
   }
 
   .cv-bullets li {
@@ -176,7 +176,7 @@
 
   .cv-sheet {
     max-width: none;
-    padding: 14mm 16mm;
+    padding: 12mm 14mm;
   }
 
   /* O link de volta ao site nao faz sentido em papel. */
@@ -184,7 +184,11 @@
     display: none;
   }
 
-  .cv-section {
-    break-inside: avoid-page;
+  /* Sem avoid-page na secao: Experiencia sozinha tem quase uma pagina de
+     altura, e proibir a quebra empurrava o bloco inteiro para a folha
+     seguinte, deixando a primeira quase vazia e gerando uma 3a pagina.
+     Quem nao pode partir ao meio e o cargo individual (.cv-role). */
+  .cv-section-title {
+    break-after: avoid-page;
   }
 }

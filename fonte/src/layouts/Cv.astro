@@ -74,28 +74,6 @@ const { cv } = Astro.props
       </section>
 
       <section class="cv-section">
-        <h2 class="cv-section-title">{cv.earlierTitle}</h2>
-        {
-          cv.earlier.map((role) => (
-            <article class="cv-role cv-role-compact">
-              <div class="cv-role-head">
-                <h3>
-                  {role.title}
-                  {role.org && <span class="cv-role-org"> · {role.org}</span>}
-                </h3>
-                <p class="cv-role-period">{role.period}</p>
-              </div>
-              {role.bullets.length > 0 && (
-                <ul class="cv-bullets">
-                  {role.bullets.map((bullet) => <li>{bullet}</li>)}
-                </ul>
-              )}
-            </article>
-          ))
-        }
-      </section>
-
-      <section class="cv-section">
         <h2 class="cv-section-title">{cv.educationTitle}</h2>
         {
           cv.education.map((item) => (
