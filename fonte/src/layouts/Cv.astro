@@ -1,0 +1,139 @@
+---
+import type { CvContent } from '@/content/cv'
+import '@/styles/global.css'
+
+interface Props {
+  cv: CvContent
+}
+
+const { cv } = Astro.props
+---
+
+<!doctype html>
+<html lang={cv.htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{cv.meta.title}</title>
+    <meta name="description" content={cv.meta.description} />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="cv-body">
+    <main class="cv-sheet">
+      <header class="cv-head">
+        <h1 class="font-serif text-4xl leading-none tracking-tight">{cv.name}</h1>
+        <p class="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
+          {cv.headline}
+        </p>
+
+        <ul class="cv-contacts">
+          {
+            cv.contacts.map((contact) => (
+              <li>
+                <span class="cv-contact-label">{contact.label}</span>
+                {contact.href ? <a href={contact.href}>{contact.text}</a> : <span>{contact.text}</span>}
+              </li>
+            ))
+          }
+        </ul>
+      </header>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">{cv.summaryTitle}</h2>
+        <p class="cv-summary">{cv.summary}</p>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">{cv.experienceTitle}</h2>
+        {
+          cv.roles.map((role) => (
+            <article class="cv-role">
+              <div class="cv-role-head">
+                <h3>
+                  {role.title}
+                  {role.org && <span class="cv-role-org"> · {role.org}</span>}
+                </h3>
+                <p class="cv-role-period">
+                  {role.period}
+                  {role.location && <span> · {role.location}</span>}
+                </p>
+              </div>
+              <ul class="cv-bullets">
+                {role.bullets.map((bullet) => <li>{bullet}</li>)}
+              </ul>
+            </article>
+          ))
+        }
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">{cv.earlierTitle}</h2>
+        {
+          cv.earlier.map((role) => (
+            <article class="cv-role cv-role-compact">
+              <div class="cv-role-head">
+                <h3>
+                  {role.title}
+                  {role.org && <span class="cv-role-org"> · {role.org}</span>}
+                </h3>
+                <p class="cv-role-period">{role.period}</p>
+              </div>
+              {role.bullets.length > 0 && (
+                <ul class="cv-bullets">
+                  {role.bullets.map((bullet) => <li>{bullet}</li>)}
+                </ul>
+              )}
+            </article>
+          ))
+        }
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">{cv.educationTitle}</h2>
+        {
+          cv.education.map((item) => (
+            <article class="cv-role cv-role-compact">
+              <div class="cv-role-head">
+                <h3>
+                  {item.title}
+                  <span class="cv-role-org"> · {item.org}</span>
+                </h3>
+                <p class="cv-role-period">{item.period}</p>
+              </div>
+            </article>
+          ))
+        }
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">{cv.skillsTitle}</h2>
+        <dl class="cv-skills">
+          {
+            cv.skills.map((group) => (
+              <div>
+                <dt>{group.title}</dt>
+                <dd>{group.items}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </section>
+
+      <section class="cv-section">
+        <h2 class="cv-section-title">{cv.languagesTitle}</h2>
+        <p class="cv-summary">{cv.languages}</p>
+      </section>
+
+      <p class="cv-back">
+        <a href={cv.backHref} class="link-underline">{cv.backLabel}</a>
+      </p>
+    </main>
+  </body>
+</html>
