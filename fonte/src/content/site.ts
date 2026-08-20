@@ -79,7 +79,7 @@ export interface SiteContent {
     quality: string[]
   }
   stack: { eyebrow: string; groups: StackGroup[] }
-  about: { eyebrow: string; paragraphs: string[] }
+  about: { eyebrow: string; paragraphs: string[]; motto: string }
   contact: { eyebrow: string; lead: string; links: ContactLink[] }
   footer: { rights: string }
 }
@@ -247,6 +247,8 @@ export const pt: SiteContent = {
       'Consolidei produtos que nasceram separados numa plataforma técnica coerente: mesma arquitetura modular, mesmo modelo de isolamento por tenant, mesmo design system, mesmos gates de qualidade. É isso que me permite entregar feature nova em qualquer um deles sem reaprender o terreno.',
       'Trabalho com agentes de IA integrados ao produto via MCP — não como camada de marketing, mas como interface real de operação, com as mesmas permissões e o mesmo escopo de tenant que a interface gráfica. Também supervisiono um estagiário e escrevo a documentação de onboarding: parte do meu trabalho é fazer com que outra pessoa consiga entrar no código sem precisar me perguntar.',
     ],
+    motto:
+      'Em todo lugar que passei, fiz a diferença. E sempre que saí, deixei profissionais que levaram o legado adiante — ou melhoraram o que eu deixei.',
   },
   contact: {
     eyebrow: 'Vamos conversar',
@@ -423,6 +425,8 @@ export const en: SiteContent = {
       'I consolidated products that started out separate into one coherent technical platform: the same modular architecture, the same tenant isolation model, the same design system, the same quality gates. That is what lets me ship a new feature in any of them without relearning the terrain.',
       'I work with AI agents integrated into the product through MCP — not as a marketing layer, but as a real operating interface, with the same permissions and the same tenant scope as the graphical interface. I also supervise an intern and write the onboarding documentation: part of my job is making sure someone else can get into the code without having to ask me.',
     ],
+    motto:
+      'Everywhere I have been, I made a difference. And every time I left, I left behind people who carried the work forward — or improved on what I built.',
   },
   contact: {
     eyebrow: 'Let us talk',

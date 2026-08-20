@@ -16,5 +16,9 @@ const { about } = Astro.props
     <div class="max-w-prose space-y-6 text-lg text-ink/80 dark:text-paper/80 leading-relaxed">
       {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
     </div>
+
+    <blockquote class="mt-14 max-w-prose border-l-2 border-accent pl-6">
+      <p class="font-serif text-2xl md:text-3xl leading-snug italic">{about.motto}</p>
+    </blockquote>
   </div>
 </section>
