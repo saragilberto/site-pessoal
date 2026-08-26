@@ -3,7 +3,7 @@ title: 'The database refuses: proving tenant isolation instead of asserting it'
 description: 'A RAG server where the RLS policy carries the isolation, not the application query. 180 cross-tenant queries, zero leakage, and a canary test that deliberately breaks isolation to prove the suite would catch it if it ever happened for real.'
 pubDate: 2026-08-26
 tags: ['PostgreSQL', 'RLS', 'multi-tenant', 'RAG', 'MCP']
-draft: true
+draft: false
 ---
 
 There are thousands of repositories called `rag-example`. Ingest, embed,
