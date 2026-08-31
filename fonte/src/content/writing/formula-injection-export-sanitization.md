@@ -3,15 +3,8 @@ title: 'A cell that starts with "=" is not data: sanitizing exports against form
 description: 'A CSV/Excel export endpoint treated every cell as text, but a spreadsheet application does not. Four leading characters turn a cell into a formula, one shared export base class fixes it for every report at once, and the test that matters checks the byte at index zero, not the string.'
 pubDate: 2026-08-31
 tags: ['security', 'sanitization', 'CSV', 'testing']
-draft: true
+draft: false
 ---
-
-> **Rascunho.** Baseado num commit de correção de segurança em um export
-> genérico de relatórios (CSV/Excel formula injection), parte de um lote
-> maior de correções com plano → fix → gate verde. Não tenho acesso ao
-> diff completo nesta sessão — os detalhes abaixo seguem o padrão técnico
-> conhecido da vulnerabilidade e a mensagem do commit; vale conferir contra
-> o código real antes de publicar.
 
 A report export feature almost never gets a security review, because
 nothing about it looks like an attack surface. There's no login form, no
@@ -85,24 +78,26 @@ the difference between a guard that stops a copy-pasted payload from a
 vulnerability scanner and one that stops the actual attack, which will
 never be considerate enough to skip the leading space on purpose.
 
-Tab (`0x09`) and carriage return (`0x0D`) as leading bytes are worth the
-same treatment for the same reason: they're whitespace-equivalent to a
-spreadsheet's tokenizer even though they're invisible in a terminal or a
-diff, which is exactly the property that makes them worth a test rather
-than a comment saying "also handle whitespace."
+The same trim call happens to cover tab and carriage return too — PHP's
+default `ltrim()` strips those along with the space — but that's a
+property of the language's default whitespace list, not a case this
+codebase tests for directly. Worth knowing the difference: relying on a
+standard-library default is not the same claim as having verified the
+edge case.
 
 ## What got tested
 
 The useful test here isn't "export a report and read the CSV back" — that
 confirms the feature still works, not that the vulnerability is closed.
-The test that matters constructs a cell value for each of the four trigger
-characters, with and without a leading space, exports it, and asserts on
-the literal first byte of the resulting cell: it must be the apostrophe,
-not whatever character came after it. That's testing the guard at the
-level where it can actually fail — byte position, not rendered output —
-because a test that only checks "the formula didn't execute" can't run
-inside CI at all; nothing in a test runner opens the file in a spreadsheet
-application to find out.
+The tests that matter construct a cell value for each of the four trigger
+characters, plus one with a leading space before the formula character,
+plus a realistic `=HYPERLINK(...)` exfiltration payload, and assert on
+the exact resulting string: it must start with the apostrophe, not
+whatever character came after it. That's testing the guard at the level
+where it can actually fail — the literal output value, not rendered
+behavior — because a test that only checks "the formula didn't execute"
+can't run inside CI at all; nothing in a test runner opens the file in a
+spreadsheet application to find out.
 
 ## What this doesn't solve
 
