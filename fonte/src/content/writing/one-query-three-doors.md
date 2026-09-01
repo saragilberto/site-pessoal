@@ -3,14 +3,8 @@ title: 'One validated query, three doors: adding a CLI without adding a bypass'
 description: 'tenant-scoped-rag grew a second MCP transport and a clipboard-delivery CLI for local LLMs that speak neither stdio nor HTTP. The design question was not "does it work" but "does walking through the new door skip the check the old ones enforce."'
 pubDate: 2026-08-26
 tags: ['MCP', 'RAG', 'CLI', 'architecture']
-draft: true
+draft: false
 ---
-
-> **Rascunho.** Baseado nos commits recentes de `tenant-scoped-rag` sobre
-> transporte HTTP/SSE e a CLI `rag-context`. Ainda não tenho acesso ao
-> código completo desta sessão, então os detalhes de implementação abaixo
-> seguem as mensagens de commit; vale conferir contra o diff real antes de
-> publicar.
 
 `tenant-scoped-rag` started with one way in: an MCP server talking stdio to
 a client that already spoke the protocol. That covers an agent running
