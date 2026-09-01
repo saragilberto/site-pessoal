@@ -1,0 +1,13 @@
+Um bug no SQL guard não foi corrigido uma vez — foi corrigido três vezes, porque três servidores MCP eram cópias do mesmo scaffold.
+
+Consertar um não consertava os outros dois. Não existia lugar único onde a correção morasse.
+
+A saída não foi "ter mais cuidado". Foi unificar os servidores num só, que resolve o produto certo por chamada em vez de depender de uma conexão fixa por produto.
+
+Antes de desligar qualquer servidor antigo, dois testes tiveram que provar, contra bancos reais, que nenhum produto vê dado de outro.
+
+Os três servidores originais continuam no ar. A prova veio antes da decisão de desligar qualquer um deles.
+
+https://saracgpereira.com/writing/four-mcp-servers-into-one/
+
+#MCP #MultiTenant #Arquitetura
