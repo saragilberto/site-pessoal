@@ -1,7 +1,7 @@
 ---
 title: 'One validated query, three doors: adding a CLI without adding a bypass'
 description: 'tenant-scoped-rag grew a second MCP transport and a clipboard-delivery CLI for local LLMs that speak neither stdio nor HTTP. The design question was not "does it work" but "does walking through the new door skip the check the old ones enforce."'
-pubDate: 2026-08-26
+pubDate: 2026-09-01
 tags: ['MCP', 'RAG', 'CLI', 'architecture']
 draft: false
 ---
