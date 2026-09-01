@@ -1,0 +1,13 @@
+Todo sistema que ganha uma nova porta de entrada levanta a mesma pergunta: essa porta nova aplica a mesma regra de acesso que as antigas, ou só parece aplicar?
+
+O tenant-scoped-rag já tinha MCP via stdio e via HTTP/SSE. Agora ganhou uma terceira porta: uma CLI que faz a mesma consulta e coloca o resultado no clipboard, pra LLMs locais que não falam nenhum dos dois protocolos.
+
+Três portas pro mesmo corpus de dados são três lugares onde o isolamento por tenant pode divergir com o tempo — a não ser que exista um único ponto que decide isso, e não um por porta.
+
+Foi isso que mudou: a checagem de escopo saiu do servidor MCP e virou uma função central que servidor e CLI chamam do mesmo jeito. Nenhuma porta decide sozinha quem pode perguntar o quê.
+
+Escrevi sobre essa refatoração e sobre por que a resposta certa pro LLM local foi um clipboard, não mais um protocolo.
+
+https://saracgpereira.com/writing/one-query-three-doors/
+
+#MCP #RAG #Arquitetura

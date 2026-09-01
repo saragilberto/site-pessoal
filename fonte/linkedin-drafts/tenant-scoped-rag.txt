@@ -1,0 +1,11 @@
+Testes verdes não provam isolamento entre tenants. Só provam que ninguém escreveu o teste que pegaria o vazamento.
+
+Construí um servidor RAG onde dois tenants dividem o mesmo schema, a mesma tabela, o mesmo índice vetorial — e quem decide quem vê o quê é a política de row-level security do PostgreSQL, não uma cláusula WHERE na aplicação.
+
+Pra provar isso, em vez de só afirmar, escrevi um canário: ele desliga a política de RLS de propósito e verifica que a suíte de isolamento fica vermelha. Se o canário passasse com o isolamento desligado, isso significaria que os testes nunca estavam de fato testando a barreira.
+
+Com o RLS ligado: 180 consultas cross-tenant, zero vazamento, reproduzível a partir de um clone limpo.
+
+A tabela de avaliação também mostra o que não funcionou — reranking piorou levemente os números nesse corpus, e isso ficou no post em vez de escondido.
+
+https://saracgpereira.com/writing/tenant-scoped-rag/

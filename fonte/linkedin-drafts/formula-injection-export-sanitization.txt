@@ -1,0 +1,11 @@
+Um export de CSV/Excel raramente passa por revisão de segurança. Não tem login, não tem SQL, não tem upload — só lê linhas que o usuário já pode ver.
+
+Mas uma célula que começa com =, +, - ou @ não é texto pra um Excel, Sheets ou LibreOffice. É uma fórmula. E isso abre espaço pra formula injection (CWE-1236).
+
+Escrevi sobre o caso: por que o conserto tem que ficar num único lugar (a classe base de export, não em cada relatório), a pegadinha de um espaço antes do "=" que engana uma checagem ingênua, e por que o teste certo verifica o byte na posição zero, não o comportamento "abriu bem no Excel".
+
+E também sobre o que essa correção não resolve.
+
+https://saracgpereira.com/writing/formula-injection-export-sanitization/
+
+#segurança #csv #testesdesoftware
