@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+
+  <text x="80" y="96" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20"
+        fill="#d4a574" letter-spacing="4" opacity="0.95">AGENT-HARNESS-COOKBOOK &#183; ARTICLE 01</text>
+
+  <text font-family="Georgia, 'Instrument Serif', serif" font-size="60" fill="#fafafa">
+    <tspan x="80" y="196">A rule in CLAUDE.md</tspan>
+    <tspan x="80" y="270">is a suggestion.</tspan>
+  </text>
+  <text x="80" y="344" font-family="Georgia, 'Instrument Serif', serif" font-size="60" fill="#d4a574">A PreToolUse hook is not.</text>
+
+  <rect x="80" y="404" width="1040" height="158" rx="12" fill="#171717" stroke="#fafafa" stroke-opacity="0.08"/>
+  <rect x="80" y="404" width="1040" height="40" rx="12" fill="#0a0a0a" fill-opacity="0.4"/>
+  <circle cx="112" cy="424" r="6" fill="#ff5f57" opacity="0.85"/>
+  <circle cx="134" cy="424" r="6" fill="#febc2e" opacity="0.85"/>
+  <circle cx="156" cy="424" r="6" fill="#28c840" opacity="0.85"/>
+  <text x="1080" y="429" text-anchor="end" font-family="ui-monospace, 'JetBrains Mono', monospace"
+        font-size="16" fill="#fafafa" opacity="0.4" letter-spacing="2">bash</text>
+
+  <text font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="24">
+    <tspan x="112" y="484" fill="#fafafa" fill-opacity="0.55">$ git push --force origin main</tspan>
+    <tspan x="112" y="524" fill="#d4a574">[SH002] Command blocked: force push.</tspan>
+    <tspan x="112" y="554" fill="#fafafa" fill-opacity="0.45" font-size="20">exit=2</tspan>
+  </text>
+
+  <rect x="80" y="602" width="48" height="2" fill="#d4a574"/>
+  <text x="140" y="609" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="16"
+        fill="#fafafa" opacity="0.55" letter-spacing="2.5">SARACGPEREIRA.COM/WRITING</text>
+</svg>
