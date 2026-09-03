@@ -2,7 +2,7 @@
 title: 'A rule in CLAUDE.md is a suggestion: a PreToolUse hook is not'
 description: 'A hook that blocks destructive shell commands before Claude Code runs them — force pushes, DDL, writes to .env — with tests split into blocks, allows, and known evasions. Plus a bug I found while verifying the README example against my own machine: the entry-point check silently failed whenever the path had a space in it.'
 pubDate: 2026-09-03
-tags: ['Claude Code', 'hooks', 'shell', 'testing']
+tags: ['agent-harness-cookbook', 'Claude Code', 'hooks', 'shell', 'testing']
 draft: false
 ---
 
