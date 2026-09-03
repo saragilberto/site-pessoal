@@ -1,11 +1,11 @@
-Uma regra escrita no CLAUDE.md é uma sugestão. Um hook PreToolUse, não.
+A rule written in CLAUDE.md is a suggestion. A PreToolUse hook is not.
 
-Construí um gate que roda antes de qualquer comando Bash do Claude Code e bloqueia force push, DDL destrutivo, escrita em .env, entre outras coisas — sempre devolvendo um motivo e uma dica pro agente, não só um "não".
+I built a gate that runs before every Bash command in Claude Code and blocks force pushes, destructive DDL, writes to .env, among others — always returning a reason and a hint for the agent, not just a "no."
 
-Testando o próprio README antes de publicar, achei um bug real: num caminho com espaço, o gate falhava calado e deixava o comando passar. A suíte de testes nunca pegou isso, porque testava a função direto e nunca passava pelo entry point da CLI.
+Testing my own README before publishing, I found a real bug: on a path with a space in it, the gate failed silently and let the command through. The test suite never caught it, because it tested the function directly and never exercised the CLI entry point.
 
-Os testes também registram o que o gate não pega — duas evasões conhecidas ficam marcadas como skip, não apagadas.
+The tests also record what the gate doesn't catch — two known evasions are marked skip, not deleted.
 
-Artigo completo, com código: https://saracgpereira.com/writing/a-shell-gate-that-fails-open/
+Full article, with code: https://saracgpereira.com/writing/a-shell-gate-that-fails-open/
 
 #ClaudeCode #AgentSecurity #DevTools
