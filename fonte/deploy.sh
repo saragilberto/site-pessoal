@@ -27,3 +27,10 @@ rsync -avz --delete --exclude 'api/' -e "ssh" dist/ "${DESTINO}"
 
 echo
 echo "Publicado — https://saracgpereira.com/"
+
+echo
+echo "Gerando rascunhos de LinkedIn para posts publicados sem rascunho ainda..."
+if ! ./linkedin-draft.sh; then
+  echo "aviso: rascunho de LinkedIn falhou (site ja foi publicado, so o rascunho ficou pendente)." >&2
+  echo "ver log em fonte/.automation/linkedin-run-*.log" >&2
+fi
