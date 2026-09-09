@@ -3,7 +3,7 @@ title: 'The finding count is not a metric: a deterministic grader for a rule wit
 description: 'An architectural scanner for tenant isolation returns 340 violations before a change and 341 after — a number nobody can act on. Comparing two scans by fingerprint instead of counting them turns it into a yes/no answer, and the fixture that had to exist to trust it was the negative one, not the positive one.'
 pubDate: 2026-09-09
 tags: ['agent-harness-cookbook', 'testing', 'static analysis', 'evals']
-draft: true
+draft: false
 ---
 
 Every real codebase already has violations. A scanner for the Acme Invoices
