@@ -16,7 +16,7 @@ set -euo pipefail
 export PATH="/usr/bin:/bin:/usr/local/bin:/Users/sara/.local/bin:$PATH"
 
 CLAUDE_BIN="/Users/sara/.local/bin/claude"
-SITE_DIR="/Users/sara/projetos/saracgpereira.com"
+SITE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 FONTE_DIR="$SITE_DIR/fonte"
 WRITING_DIR="$FONTE_DIR/src/content/writing"
 DRAFTS_DIR="$FONTE_DIR/linkedin-drafts"
