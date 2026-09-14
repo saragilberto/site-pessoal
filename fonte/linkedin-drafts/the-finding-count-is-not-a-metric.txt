@@ -1,0 +1,10 @@
+Um scanner de isolamento multi-tenant acusa 340 violações antes de uma mudança e 341 depois. Esse número, sozinho, não diz nada: é regressão nova ou só uma violação antiga que mudou de linha porque alguém adicionou um import?
+
+A pergunta certa não é "quantas", é "essa mudança introduziu alguma". Isso vira uma comparação por diferença de conjuntos entre dois scans, não uma contagem — e o backlog antigo se cancela sozinho, sem baseline congelado pra alguém esquecer de atualizar.
+
+Isso só funciona se a identidade de cada violação sobreviver a uma linha deslocada, o que muda o que entra no "fingerprint" de cada achado.
+
+E o teste que mais importava não foi o que prova que o scanner pega a violação — foi o que prova que ele fica quieto na classe que já está correta.
+
+Artigo completo, com o código:
+https://saracgpereira.com/writing/the-finding-count-is-not-a-metric/

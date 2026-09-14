@@ -1,0 +1,11 @@
+Um agente de suporte impersona o tenant A, resolve algo, troca para o tenant B sem deslogar. Normal num plantão com vários clientes na mesma sessão.
+
+O bug: algum ponto do código já tinha lido o tenant ativo antes da troca e guardou o valor. Continua respondendo como se ainda fosse o tenant A — sem erro, sem log estranho, só um relatório ou uma auditoria atribuída ao cliente errado.
+
+A causa não foi guardar o identificador na sessão. Foi tratar um valor com validade de request como se tivesse validade de login, e deixar cada parte do código decidir por conta própria se lia de novo ou reaproveitava o que já tinha.
+
+A correção não foi "ler a sessão com mais cuidado" — foi tirar essa decisão de cada call site: um contexto vinculado uma vez por request, no início do middleware, e todo o resto lendo desse único lugar.
+
+E o teste que prova isso não é impersonar um tenant e checar o valor. É trocar de tenant no meio da sessão e verificar se quem foi construído antes da troca ainda responde certo depois dela.
+
+Artigo completo: https://saracgpereira.com/writing/the-session-is-not-the-request/
