@@ -3,7 +3,7 @@ title: 'The session is not the request: a tenant identifier that stopped updatin
 description: 'A support console resolved the active tenant''s identifier from a session value set once at login. Impersonating a second tenant in the same browser session left every downstream call pinned to the first one — a bug invisible to any test that only impersonates one tenant per test run. The fix was reading it from a request-scoped context instead, one property lookup instead of a session read.'
 pubDate: 2026-09-14
 tags: ['multi-tenant', 'architecture', 'testing', 'PHP']
-draft: true
+draft: false
 ---
 
 A support agent working inside a multi-tenant platform needs to see the
