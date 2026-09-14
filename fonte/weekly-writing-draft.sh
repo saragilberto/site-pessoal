@@ -22,6 +22,18 @@ WRITING_DIR="$FONTE_DIR/src/content/writing"
 LOG_DIR="$FONTE_DIR/.automation"
 mkdir -p "$LOG_DIR"
 
+# O plist dispara varias vezes por semana (horarios diferentes de segunda +
+# terca de manha, mais RunAtLoad) como tentativas de retry, caso o disco
+# externo onde este script mora nao esteja montado no horario exato. Esse
+# marcador garante que so a primeira tentativa bem-sucedida da semana rode de
+# verdade -- as demais chamadas da mesma semana ISO sao no-op silencioso.
+WEEK_MARKER="$LOG_DIR/.last-run-week"
+CURRENT_WEEK="$(date +%G-W%V)"
+if [[ -f "$WEEK_MARKER" ]] && [[ "$(cat "$WEEK_MARKER")" == "$CURRENT_WEEK" ]]; then
+  echo "$(date '+%Y-%m-%d %H:%M:%S') -- ja rodou com sucesso esta semana ($CURRENT_WEEK), pulando (retry/RunAtLoad extra)." >> "$LOG_DIR/skipped.log"
+  exit 0
+fi
+
 TS="$(date +%Y-%m-%d_%H%M%S)"
 LOG_FILE="$LOG_DIR/run-$TS.log"
 SCAN_FILE="$LOG_DIR/scan-$TS.txt"
@@ -32,13 +44,14 @@ echo "=== Weekly writing draft - $TS ==="
 # Repositorios locais escaneados por assunto (so titulo de commit, nunca diff).
 # Se um disco externo nao estiver montado, o repo e pulado, nao trava o resto.
 REPOS=(
-  "/Volumes/MacBook Pro II/projetos/tenant-scoped-rag"
-  "/Volumes/MacBook Pro II/projetos/licitae"
-  "/Volumes/MacBook Pro II/projetos/fiscalizae"
-  "/Volumes/MacBook Pro II/projetos/suporte-sh3-hub"
-  "/Volumes/MacBook Pro II/projetos/sh3-mcp-server"
-  "/Volumes/MacBook Pro II/projetos/design-system"
-  "/Volumes/MacBook Pro II/projetos/template-sh3"
+  "/Volumes/MacBook Pro II/projetos/pessoal/tenant-scoped-rag"
+  "/Volumes/MacBook Pro II/projetos/pessoal/agent-harness-cookbook"
+  "/Volumes/MacBook Pro II/projetos/profissional/licitae"
+  "/Volumes/MacBook Pro II/projetos/profissional/fiscalizae"
+  "/Volumes/MacBook Pro II/projetos/profissional/suporte-sh3-hub"
+  "/Volumes/MacBook Pro II/projetos/profissional/sh3-mcp-server"
+  "/Volumes/MacBook Pro II/projetos/profissional/design-system"
+  "/Volumes/MacBook Pro II/projetos/profissional/template-sh3"
 )
 
 echo "--- commit scan (ultimos 8 dias) ---" > "$SCAN_FILE"
@@ -110,4 +123,5 @@ else
 fi
 
 rm -f "$BEFORE_LIST" "$AFTER_LIST"
+echo "$CURRENT_WEEK" > "$WEEK_MARKER"
 } >> "$LOG_FILE" 2>&1
