@@ -1,0 +1,9 @@
+"As PRs estão maiores ultimamente" é uma frase que todo time já disse em algum retrô. É uma sensação, não um número — não diz qual PR, quanto maior, nem desde quando.
+
+Geração de código ficou mais rápida. Revisão não: continua sendo uma pessoa lendo um diff no ritmo de uma pessoa.
+
+Escrevi um exemplo que tira duas métricas — tamanho de PR e tempo até o merge — direto de um git log, sem dependência e sem chamada de API.
+
+A parte interessante não foi o caminho feliz, foi tratar dois casos que só aparecem num histórico real: commits que ainda não foram mergeados, e um merge que não fecha nada.
+
+https://saracgpereira.com/writing/the-bottleneck-moved/
