@@ -1,0 +1,11 @@
+"Okay, shipping it now." Lida sozinha, essa mensagem do agente não tem nada de errado.
+
+Só é violação porque, dois turnos antes, o "it" passou a significar "a query sem o filtro de tenant que eu tinha dito que ia adicionar".
+
+Teste unitário avalia uma chamada. Esse tipo de falha só existe na conversa inteira.
+
+Escrevi um exemplo com transcrições gravadas e um teste que prova o ponto: avaliando só o último turno, com o mesmo avaliador, a violação some.
+
+#agentes #evals #testes
+
+https://saracgpereira.com/writing/an-eval-is-not-a-test/
