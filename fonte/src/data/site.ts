@@ -94,7 +94,7 @@ export const pt: SiteContent = {
   meta: {
     title: 'Sara Pereira — Engenheira de Software',
     description:
-      'Engenheira de software full-stack. Seis plataformas SaaS multi-tenant em producao em dominios regulados, com agentes de IA integrados ao produto via MCP.',
+      'Engenheira de software full-stack. Cinco plataformas SaaS multi-tenant em dominios regulados (tres em producao, duas em homologacao), com agentes de IA integrados ao produto via MCP.',
   },
   nav: {
     work: 'Trabalho',
@@ -109,7 +109,7 @@ export const pt: SiteContent = {
   hero: {
     eyebrow: 'Engenheira de software full-stack',
     headline: 'Plataformas SaaS multi-tenant para domínios em que o erro custa caro.',
-    lead: 'Construo produtos ponta-a-ponta — arquitetura, backend, frontend, mobile e agentes de IA — em setores onde a regra de negócio é densa e a margem de tolerância é pequena. Hoje são seis produtos em produção sobre a mesma base técnica.',
+    lead: 'Construo produtos ponta-a-ponta — arquitetura, backend, frontend, mobile e agentes de IA — em setores onde a regra de negócio é densa e a margem de tolerância é pequena. Hoje são cinco produtos sobre a mesma base técnica: três em produção e dois em homologação.',
     ctaPrimary: 'Ver trabalhos',
     ctaSecondary: 'Falar comigo',
     availability: 'Disponível para projetos · PJ',
@@ -117,7 +117,7 @@ export const pt: SiteContent = {
   stats: {
     eyebrow: 'Em números',
     items: [
-      { value: '6', label: 'produtos multi-tenant em produção' },
+      { value: '3', label: 'produtos multi-tenant em produção (mais 2 em homologação)' },
       { value: '5', label: 'domínios regulados atendidos' },
       { value: '~3.700', label: 'commits autorados em 9 meses' },
       { value: '4 → 1', label: 'servidores MCP consolidados em um' },
@@ -134,7 +134,7 @@ export const pt: SiteContent = {
       {
         n: '02',
         title: 'Multi-tenant em produção',
-        body: 'Isolamento por schema no PostgreSQL, módulos desacoplados em Laravel, sem vazar dado entre clientes. Mesmo padrão replicado em seis produtos.',
+        body: 'Isolamento por schema no PostgreSQL, módulos desacoplados em Laravel, sem vazar dado entre clientes. Mesmo padrão replicado em cinco produtos.',
       },
       {
         n: '03',
@@ -274,7 +274,7 @@ export const en: SiteContent = {
   meta: {
     title: 'Sara Pereira — Software Engineer',
     description:
-      'Full-stack software engineer. Six multi-tenant SaaS platforms in production across regulated domains, with AI agents integrated into the product through MCP.',
+      'Full-stack software engineer. Five multi-tenant SaaS platforms across regulated domains (three in production, two in staging), with AI agents integrated into the product through MCP.',
   },
   nav: {
     work: 'Work',
@@ -289,7 +289,7 @@ export const en: SiteContent = {
   hero: {
     eyebrow: 'Full-stack software engineer',
     headline: 'Multi-tenant SaaS platforms for domains where mistakes are expensive.',
-    lead: 'I build products end to end — architecture, backend, frontend, mobile and AI agents — in sectors where business rules are dense and the margin for error is thin. Six products are in production today on the same technical foundation.',
+    lead: 'I build products end to end — architecture, backend, frontend, mobile and AI agents — in sectors where business rules are dense and the margin for error is thin. Five products today on the same technical foundation: three in production and two in staging.',
     ctaPrimary: 'See the work',
     ctaSecondary: 'Get in touch',
     availability: 'Available for contract work',
@@ -297,7 +297,7 @@ export const en: SiteContent = {
   stats: {
     eyebrow: 'By the numbers',
     items: [
-      { value: '6', label: 'multi-tenant products in production' },
+      { value: '3', label: 'multi-tenant products in production (plus 2 in staging)' },
       { value: '5', label: 'regulated domains served' },
       { value: '~3,700', label: 'commits authored in 9 months' },
       { value: '4 → 1', label: 'MCP servers consolidated into one' },
@@ -314,7 +314,7 @@ export const en: SiteContent = {
       {
         n: '02',
         title: 'Multi-tenant in production',
-        body: 'Schema-level isolation in PostgreSQL, decoupled Laravel modules, no data leaking between clients. The same pattern replicated across six products.',
+        body: 'Schema-level isolation in PostgreSQL, decoupled Laravel modules, no data leaking between clients. The same pattern replicated across five products.',
       },
       {
         n: '03',

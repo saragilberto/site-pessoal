@@ -70,7 +70,7 @@ export const cvPt: CvContent = {
   ],
   summaryTitle: 'Perfil',
   summary:
-    'Engenheira de software full-stack e coordenadora de inovação. Construo plataformas SaaS multi-tenant para domínios regulados — compras públicas, gestão municipal, tributário, folha de pagamento e serviços ao cidadão — com Laravel, Vue 3 e PostgreSQL isolado por schema. Nos últimos nove meses autorei cerca de 3.700 commits em seis produtos rodando em produção. Lidero a adoção de agentes de IA integrados ao produto via MCP, com as mesmas permissões e o mesmo escopo de tenant da interface gráfica.',
+    'Engenheira de software full-stack e coordenadora de inovação. Construo plataformas SaaS multi-tenant para domínios regulados — compras públicas, gestão municipal, tributário, folha de pagamento e serviços ao cidadão — com Laravel, Vue 3 e PostgreSQL isolado por schema. Nos últimos nove meses autorei cerca de 3.700 commits em cinco produtos, três em produção e dois em homologação. Lidero a adoção de agentes de IA integrados ao produto via MCP, com as mesmas permissões e o mesmo escopo de tenant da interface gráfica.',
   experienceTitle: 'Experiência',
   roles: [
     {
@@ -91,7 +91,7 @@ export const cvPt: CvContent = {
       period: 'abr/2024 – jan/2026',
       location: 'Remoto',
       bullets: [
-        'Seis produtos multi-tenant em produção sobre a mesma base técnica: SaaS B2G de licitações, ERP de gestão municipal, fiscalização tributária, hub de suporte, aplicativo mobile e o template base compartilhado.',
+        'Cinco produtos multi-tenant (três em produção, dois em homologação) sobre a mesma base técnica: SaaS B2G de licitações, ERP de gestão municipal, fiscalização tributária, hub de suporte e aplicativo mobile, mais o template base compartilhado.',
         'Arquitetura multi-tenant com isolamento por schema em PostgreSQL, RBAC global e local, provisionamento de novos tenants e navegação agregada por módulo.',
         'Consolidei os módulos do produto de licitações de sete para cinco, provando paridade de 345 rotas, sem re-executar nenhuma migration nos cinco schemas e com 979 testes verdes.',
         'Publiquei aplicativo municipal em iOS e Android com Vue 3 e Capacitor — agendamento de espaços públicos, táxi municipal com suporte offline, contra-cheque com IRRF e extrato previdenciário, índices financeiros e portal de água e esgoto.',
@@ -174,7 +174,7 @@ export const cvEn: CvContent = {
   ],
   summaryTitle: 'Profile',
   summary:
-    'Full-stack software engineer and innovation lead. I build multi-tenant SaaS platforms for regulated domains — public procurement, municipal government, tax, payroll and citizen services — with Laravel, Vue 3 and schema-isolated PostgreSQL. Over the last nine months I authored roughly 3,700 commits across six products running in production. I lead the adoption of AI agents built into the product through MCP, with the same permissions and the same tenant scope as the graphical interface.',
+    'Full-stack software engineer and innovation lead. I build multi-tenant SaaS platforms for regulated domains — public procurement, municipal government, tax, payroll and citizen services — with Laravel, Vue 3 and schema-isolated PostgreSQL. Over the last nine months I authored roughly 3,700 commits across five products, three in production and two in staging. I lead the adoption of AI agents built into the product through MCP, with the same permissions and the same tenant scope as the graphical interface.',
   experienceTitle: 'Experience',
   roles: [
     {
@@ -195,7 +195,7 @@ export const cvEn: CvContent = {
       period: 'Apr 2024 – Jan 2026',
       location: 'Remote',
       bullets: [
-        'Six multi-tenant products in production on the same technical foundation: a B2G tendering SaaS, a municipal government ERP, tax auditing, a support hub, a mobile app and the shared base template.',
+        'Five multi-tenant products (three in production, two in staging) on the same technical foundation: a B2G tendering SaaS, a municipal government ERP, tax auditing, a support hub and a mobile app, plus the shared base template.',
         'Multi-tenant architecture with schema-level isolation in PostgreSQL, global and local RBAC, tenant provisioning and module-aggregated navigation.',
         'Consolidated the tendering product from seven modules down to five, proving parity across 345 routes, with no migration re-run on any of the five schemas and 979 tests green.',
         'Shipped a municipal app on iOS and Android with Vue 3 and Capacitor — public venue booking, municipal taxi with offline support, payslips with income tax and social security statements, financial indicators and a water and sewage portal.',
