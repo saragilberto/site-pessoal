@@ -3,7 +3,7 @@ title: '"Okay, shipping it now." is a violation, and no single message proves it
 description: 'A unit test checks one call; some agent failures are a function of the conversation, not of any message in it. A tenant-isolation check gets dropped two turns after the request to skip it — recorded as fixtures, with a test proving that grading the final turn alone makes the violation disappear.'
 pubDate: 2026-09-26
 tags: ['agent-harness-cookbook', 'evals', 'testing', 'multi-turn']
-draft: true
+draft: false
 ---
 
 A unit test checks one call: given this input, expect that output.
