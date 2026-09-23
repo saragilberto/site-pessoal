@@ -70,7 +70,7 @@ export const cvPt: CvContent = {
   ],
   summaryTitle: 'Perfil',
   summary:
-    'Engenheira de software full-stack e coordenadora de inovação. Construo plataformas SaaS multi-tenant para domínios regulados — compras públicas, gestão municipal, tributário, folha de pagamento e serviços ao cidadão — com Laravel, Vue 3 e PostgreSQL isolado por schema. Nos últimos nove meses autorei cerca de 4.250 commits em nove repositórios da empresa. Dos cinco produtos da plataforma, um já está em produção com cliente, dois em homologação e dois em teste interno. Lidero a adoção de agentes de IA integrados ao produto via MCP, com as mesmas permissões e o mesmo escopo de tenant da interface gráfica.',
+    'Engenheira de software full-stack e coordenadora de inovação. Construo plataformas SaaS multi-tenant para domínios regulados — compras públicas, gestão municipal, tributário, folha de pagamento e serviços ao cidadão — com Laravel, Vue 3 e PostgreSQL isolado por schema. Nos últimos nove meses autorei cerca de 4.250 commits em nove repositórios da empresa. Dos cinco produtos da plataforma, um já está em produção com cliente, dois em homologação e dois em teste interno. Lidero a adoção de agentes de IA que operam sobre os dados reais dos produtos via MCP, sob o mesmo escopo de permissão de cada tenant.',
   experienceTitle: 'Experiência',
   roles: [
     {
@@ -79,7 +79,7 @@ export const cvPt: CvContent = {
       period: 'jan/2026 – atual',
       location: 'Remoto',
       bullets: [
-        'Lidero a adoção de IA na empresa: agentes integrados aos produtos via MCP, operando dados reais sob o escopo de permissão de cada tenant — não camada de chat acoplada por fora.',
+        'Lidero a adoção de IA na empresa: agentes internos, para o time técnico e de suporte, operando sobre dados reais dos produtos via MCP sob o escopo de permissão de cada tenant — não uma camada de chat para o cliente final.',
         'Criei o harness de desenvolvimento assistido por IA usado pelo time — regras e hooks versionados no repositório e o fluxo spec-driven (spec, design, tasks atômicas, TDD e verificação independente) hoje replicado em outros times.',
         'Projetei a consolidação de três servidores MCP redundantes em um só, unificando cerca de 54 tools duplicadas. Os anteriores eram cópias do mesmo scaffold, o que já havia produzido o mesmo defeito em três produtos ao mesmo tempo. O unificado resolve a conexão por produto em tempo de execução, provando cobertura caso a caso antes de desligar cada um.',
         'Supervisiono estagiário e mantenho a documentação de onboarding dos produtos, escrita para quem chega sem contexto.',
@@ -152,7 +152,7 @@ export const cvPt: CvContent = {
     { title: 'Frontend', items: 'Vue 3 · TypeScript estrito · Inertia.js · Tailwind · Design system próprio' },
     { title: 'Mobile', items: 'Capacitor (iOS e Android) · Pinia · Vue Router · Offline-first' },
     { title: 'Infra e qualidade', items: 'Docker · CI/CD · Playwright · Análise estática · ADRs' },
-    { title: 'IA', items: 'MCP Servers · Agentes integrados ao produto · Tool use sob escopo do tenant · Busca híbrida (RAG)' },
+    { title: 'IA', items: 'MCP Servers · Tool use sob escopo do tenant · RAG + LLM local (suporte e code completion)' },
   ],
   languagesTitle: 'Idiomas',
   languages: 'Português — nativo · Inglês — fluente · Espanhol — iniciante',
@@ -177,7 +177,7 @@ export const cvEn: CvContent = {
   ],
   summaryTitle: 'Profile',
   summary:
-    'Full-stack software engineer and innovation lead. I build multi-tenant SaaS platforms for regulated domains — public procurement, municipal government, tax, payroll and citizen services — with Laravel, Vue 3 and schema-isolated PostgreSQL. Over the last nine months I authored roughly 4,250 commits across nine company repositories. Of the five products on the platform, one is already in production with a client, two are in client staging and two are in internal testing. I lead the adoption of AI agents built into the product through MCP, with the same permissions and the same tenant scope as the graphical interface.',
+    'Full-stack software engineer and innovation lead. I build multi-tenant SaaS platforms for regulated domains — public procurement, municipal government, tax, payroll and citizen services — with Laravel, Vue 3 and schema-isolated PostgreSQL. Over the last nine months I authored roughly 4,250 commits across nine company repositories. Of the five products on the platform, one is already in production with a client, two are in client staging and two are in internal testing. I lead the adoption of AI agents that operate on the products\' real data through MCP, under each tenant\'s permission scope.',
   experienceTitle: 'Experience',
   roles: [
     {
@@ -186,7 +186,7 @@ export const cvEn: CvContent = {
       period: 'Jan 2026 – present',
       location: 'Remote',
       bullets: [
-        'I lead AI adoption across the company: agents built into the products through MCP, operating on real data under each tenant permission scope — not a chat layer bolted on the side.',
+        'I lead AI adoption across the company: internal agents, for the technical and support team, operating on the products\' real data through MCP under each tenant\'s permission scope — not a chat layer for the end customer.',
         'I built the AI-assisted development harness the team uses — rules and hooks versioned in the repository, and the spec-driven flow (spec, design, atomic tasks, TDD and independent verification) now replicated across other teams.',
         'I designed the consolidation of three redundant MCP servers into one, unifying roughly 54 duplicated tools. The previous ones were copies of the same scaffold, which had already produced the same defect in three products at once. The unified server resolves the connection per product at runtime, proving coverage case by case before retiring each one.',
         'I supervise an intern and maintain the onboarding documentation for the products, written for people arriving without context.',
@@ -259,7 +259,7 @@ export const cvEn: CvContent = {
     { title: 'Frontend', items: 'Vue 3 · Strict TypeScript · Inertia.js · Tailwind · In-house design system' },
     { title: 'Mobile', items: 'Capacitor (iOS and Android) · Pinia · Vue Router · Offline-first' },
     { title: 'Infra and quality', items: 'Docker · CI/CD · Playwright · Static analysis · ADRs' },
-    { title: 'AI', items: 'MCP Servers · Agents built into the product · Tool use scoped to the tenant · Hybrid search (RAG)' },
+    { title: 'AI', items: 'MCP Servers · Tool use scoped to the tenant · RAG + local LLM (support and code completion)' },
   ],
   languagesTitle: 'Languages',
   languages: 'Portuguese — native · English — fluent · Spanish — beginner',
