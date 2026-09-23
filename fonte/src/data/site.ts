@@ -94,7 +94,7 @@ export const pt: SiteContent = {
   meta: {
     title: 'Sara Pereira — Engenheira de Software',
     description:
-      'Engenheira de software full-stack. Cinco plataformas SaaS multi-tenant em dominios regulados (tres em producao, duas em homologacao), com agentes de IA integrados ao produto via MCP.',
+      'Engenheira de software full-stack. Cinco plataformas SaaS multi-tenant em dominios regulados — uma ja em producao, duas em homologacao com cliente e duas em teste interno — com agentes de IA integrados ao produto via MCP.',
   },
   nav: {
     work: 'Trabalho',
@@ -109,7 +109,7 @@ export const pt: SiteContent = {
   hero: {
     eyebrow: 'Engenheira de software full-stack',
     headline: 'Plataformas SaaS multi-tenant para domínios em que o erro custa caro.',
-    lead: 'Construo produtos ponta-a-ponta — arquitetura, backend, frontend, mobile e agentes de IA — em setores onde a regra de negócio é densa e a margem de tolerância é pequena. Hoje são cinco produtos sobre a mesma base técnica: três em produção e dois em homologação.',
+    lead: 'Construo produtos ponta-a-ponta — arquitetura, backend, frontend, mobile e agentes de IA — em setores onde a regra de negócio é densa e a margem de tolerância é pequena. Hoje são cinco produtos sobre a mesma base técnica, em estágios diferentes: um já em produção com o cliente, dois em homologação e dois em teste interno.',
     ctaPrimary: 'Ver trabalhos',
     ctaSecondary: 'Falar comigo',
     availability: 'Disponível para projetos · PJ',
@@ -117,10 +117,10 @@ export const pt: SiteContent = {
   stats: {
     eyebrow: 'Em números',
     items: [
-      { value: '3', label: 'produtos multi-tenant em produção (mais 2 em homologação)' },
+      { value: '5', label: 'produtos multi-tenant sobre a mesma base técnica' },
       { value: '5', label: 'domínios regulados atendidos' },
-      { value: '~3.700', label: 'commits autorados em 9 meses' },
-      { value: '4 → 1', label: 'servidores MCP consolidados em um' },
+      { value: '~4.250', label: 'commits autorados em 9 meses' },
+      { value: '3 → 1', label: 'servidores MCP consolidados em um' },
     ],
   },
   approach: {
@@ -157,8 +157,8 @@ export const pt: SiteContent = {
         n: 'CASE / 01',
         sector: 'Compras públicas',
         title: 'Plataforma SaaS B2G',
-        body: 'Plataforma multi-tenant para empresas que disputam licitações públicas. Integração com APIs governamentais, prospecção automatizada, análise de editais e comparativo de preços entre plataformas concorrentes. Agente conversacional via MCP operando sobre os dados do tenant.',
-        proof: 'Numa consolidação recente, fundi três módulos em um e reduzi o produto de sete para cinco — provando paridade de 345 rotas, sem nenhuma migration re-executada nos cinco schemas e com 979 testes verdes.',
+        body: 'Plataforma multi-tenant para empresas que disputam licitações públicas. Integração com APIs governamentais, prospecção automatizada, análise de editais, planejamento de contratações com controle de exercício e comparativo de preços entre plataformas concorrentes. Agente conversacional via MCP operando sobre os dados do tenant.',
+        proof: 'Numa consolidação recente, fundi três módulos em um e reduzi o produto de quatro para dois módulos de negócio — provando paridade de 345 rotas, sem nenhuma migration re-executada nos cinco schemas. Em homologação com o cliente.',
         tags: ['Laravel modular', 'PostgreSQL multi-tenant', 'Vue 3 + Inertia', 'MCP Server'],
         roles: 'Arquitetura · Backend · Frontend · IA',
       },
@@ -167,6 +167,7 @@ export const pt: SiteContent = {
         sector: 'Setor público',
         title: 'ERP de gestão municipal',
         body: 'O maior produto do portfólio: plataforma modular para prefeituras e autarquias, com isolamento por município no nível de schema. Módulos de orçamento, frotas, patrimônio, agendamento e Departamento Pessoal com folha e ponto — cada contratante liga apenas os que usa.',
+        proof: 'Entreguei os módulos de orçamento e frota de ponta a ponta, uma reescrita da camada de autorização (RBAC) que corrigiu uma falha grave de acesso entre clientes, e uma trilha de auditoria imutável no banco. Em teste interno.',
         tags: ['Laravel modular', 'PostgreSQL multi-tenant', 'Vue 3 + Inertia', 'MCP Server'],
         roles: 'Arquitetura · Backend · Frontend · IA',
       },
@@ -175,6 +176,7 @@ export const pt: SiteContent = {
         sector: 'Tributário',
         title: 'Fiscalização tributária municipal',
         body: 'Cruzamento de notas fiscais de serviço, RPS sem NFS-e correspondente e extrato PGDAS da Receita Federal num cubo de faturamento com medidas propagadas. Domínio onde uma regra mal implementada não gera bug: gera autuação indevida.',
+        proof: 'Recriei o catálogo de atividades da Receita Federal para o layout vigente, corrigindo um bug que inflava ou mascarava a receita apurada, e escrevi a primeira suíte de testes de tela do módulo. Em homologação com o cliente.',
         tags: ['Laravel modular', 'PostgreSQL multi-tenant', 'Vue 3 + Inertia', 'Cubo de faturamento'],
         roles: 'Backend · Frontend · Regra fiscal',
       },
@@ -186,6 +188,15 @@ export const pt: SiteContent = {
         proof: 'Publicado nas duas lojas e em uso por cidadãos — não é protótipo.',
         tags: ['Vue 3 + Capacitor', 'TypeScript', 'Pinia', 'Offline-first'],
         roles: 'Mobile · Frontend · Integrações',
+      },
+      {
+        n: 'CASE / 05',
+        sector: 'Atendimento e conhecimento interno',
+        title: 'Hub de atendimento e base de conhecimento com IA',
+        body: 'Plataforma que unifica o atendimento a clientes, hoje fragmentado entre os demais produtos: fila de chamados com classificação e SLA, wiki interna com busca full-text e um motor de busca híbrida (RAG) sobre manuais, artigos e documentação técnica, consumido tanto pela equipe de suporte quanto por agentes de IA.',
+        proof: 'Entreguei os dois primeiros marcos do módulo de chamados e a fundação da busca híbrida. Em teste interno — outro desenvolvedor do time já entregou uma feature de ponta a ponta sobre a mesma base.',
+        tags: ['Laravel modular', 'PostgreSQL multi-tenant', 'Vue 3 + Inertia', 'Busca híbrida / RAG'],
+        roles: 'Arquitetura · Backend · Frontend · IA',
       },
     ],
   },
@@ -243,7 +254,7 @@ export const pt: SiteContent = {
   about: {
     eyebrow: 'Sobre',
     paragraphs: [
-      'Engenheira de software com foco em plataformas SaaS de domínio complexo. Trabalho com Laravel, Vue 3 e PostgreSQL multi-tenant em produtos rodando em produção nos setores de compras públicas, gestão municipal, tributário, folha de pagamento e serviços ao cidadão.',
+      'Engenheira de software com foco em plataformas SaaS de domínio complexo. Trabalho com Laravel, Vue 3 e PostgreSQL multi-tenant em produtos que atendem os setores de compras públicas, gestão municipal, tributário, folha de pagamento e serviços ao cidadão — do app já em produção aos que estão em homologação com cliente e em teste interno.',
       'Cheguei aqui por um caminho torto. Fui personal trainer, morei fora entre 2014 e 2018 trabalhando em hostels no Chile e na Noruega, e liderei uma equipe de coaches de CrossFit por três anos. Entrei na empresa onde estou hoje em 2021, numa função administrativa; virei desenvolvedora em 2024 e hoje coordeno o setor de inovação.',
       'Treinar pessoas ensina uma coisa que serve para software: você responde pelo resultado de outra pessoa, e um erro de julgamento tem consequência física. É de onde vem meu incômodo com sistema que passa nos testes mas que ninguém abriu na tela.',
       'Consolidei produtos que nasceram separados numa plataforma técnica coerente: mesma arquitetura modular, mesmo modelo de isolamento por tenant, mesmo design system, mesmos gates de qualidade. É isso que me permite entregar feature nova em qualquer um deles sem reaprender o terreno.',
@@ -274,7 +285,7 @@ export const en: SiteContent = {
   meta: {
     title: 'Sara Pereira — Software Engineer',
     description:
-      'Full-stack software engineer. Five multi-tenant SaaS platforms across regulated domains (three in production, two in staging), with AI agents integrated into the product through MCP.',
+      'Full-stack software engineer. Five multi-tenant SaaS platforms across regulated domains — one already in production, two in client staging and two in internal testing — with AI agents integrated into the product through MCP.',
   },
   nav: {
     work: 'Work',
@@ -289,7 +300,7 @@ export const en: SiteContent = {
   hero: {
     eyebrow: 'Full-stack software engineer',
     headline: 'Multi-tenant SaaS platforms for domains where mistakes are expensive.',
-    lead: 'I build products end to end — architecture, backend, frontend, mobile and AI agents — in sectors where business rules are dense and the margin for error is thin. Five products today on the same technical foundation: three in production and two in staging.',
+    lead: 'I build products end to end — architecture, backend, frontend, mobile and AI agents — in sectors where business rules are dense and the margin for error is thin. Five products today on the same technical foundation, at different stages: one already in production with a client, two in client staging and two in internal testing.',
     ctaPrimary: 'See the work',
     ctaSecondary: 'Get in touch',
     availability: 'Available for contract work',
@@ -297,10 +308,10 @@ export const en: SiteContent = {
   stats: {
     eyebrow: 'By the numbers',
     items: [
-      { value: '3', label: 'multi-tenant products in production (plus 2 in staging)' },
+      { value: '5', label: 'multi-tenant products on the same technical foundation' },
       { value: '5', label: 'regulated domains served' },
-      { value: '~3,700', label: 'commits authored in 9 months' },
-      { value: '4 → 1', label: 'MCP servers consolidated into one' },
+      { value: '~4,250', label: 'commits authored in 9 months' },
+      { value: '3 → 1', label: 'MCP servers consolidated into one' },
     ],
   },
   approach: {
@@ -336,8 +347,8 @@ export const en: SiteContent = {
         n: 'CASE / 01',
         sector: 'Public procurement',
         title: 'B2G SaaS platform',
-        body: 'Multi-tenant platform for companies bidding on public tenders. Integration with government APIs, automated prospecting, tender analysis and price comparison across competing platforms. A conversational MCP agent operating on the tenant data.',
-        proof: 'In a recent consolidation I merged three modules into one and took the product from seven modules down to five — proving parity across 345 routes, with no migration re-run on any of the five schemas and 979 tests green.',
+        body: 'Multi-tenant platform for companies bidding on public tenders. Integration with government APIs, automated prospecting, tender analysis, procurement planning with fiscal-year controls and price comparison across competing platforms. A conversational MCP agent operating on the tenant data.',
+        proof: 'In a recent consolidation I merged three modules into one and took the product from four business modules down to two — proving parity across 345 routes, with no migration re-run on any of the five schemas. In client staging.',
         tags: ['Modular Laravel', 'Multi-tenant PostgreSQL', 'Vue 3 + Inertia', 'MCP Server'],
         roles: 'Architecture · Backend · Frontend · AI',
       },
@@ -346,6 +357,7 @@ export const en: SiteContent = {
         sector: 'Public sector',
         title: 'Municipal government ERP',
         body: 'The largest product in the portfolio: a modular platform for city halls and public agencies, isolated per municipality at the schema level. Modules for budgeting, fleet, assets, scheduling and HR with payroll and timekeeping — each client enables only what they use.',
+        proof: 'I shipped the budgeting and fleet modules end to end, rewrote the authorization layer (RBAC) after finding a serious cross-tenant access flaw, and made the database audit trail immutable. In internal testing.',
         tags: ['Modular Laravel', 'Multi-tenant PostgreSQL', 'Vue 3 + Inertia', 'MCP Server'],
         roles: 'Architecture · Backend · Frontend · AI',
       },
@@ -354,6 +366,7 @@ export const en: SiteContent = {
         sector: 'Tax',
         title: 'Municipal tax auditing',
         body: 'Cross-referencing service invoices, receipts with no matching invoice and federal tax authority statements into a revenue cube with propagated measures. A domain where a badly implemented rule does not produce a bug: it produces an unjustified tax assessment.',
+        proof: 'I rebuilt the federal tax authority activity catalogue for the current layout, fixing a bug that inflated or masked reported revenue, and wrote the module first screen-level test suite. In client staging.',
         tags: ['Modular Laravel', 'Multi-tenant PostgreSQL', 'Vue 3 + Inertia', 'Revenue cube'],
         roles: 'Backend · Frontend · Tax rules',
       },
@@ -365,6 +378,15 @@ export const en: SiteContent = {
         proof: 'Published on both stores and in use by citizens — not a prototype.',
         tags: ['Vue 3 + Capacitor', 'TypeScript', 'Pinia', 'Offline-first'],
         roles: 'Mobile · Frontend · Integrations',
+      },
+      {
+        n: 'CASE / 05',
+        sector: 'Support and internal knowledge',
+        title: 'AI-powered support and knowledge hub',
+        body: 'A platform that unifies customer support, today split across the other products: a ticket queue with classification and SLAs, an internal wiki with full-text search, and a hybrid search engine (RAG) over manuals, articles and technical docs, used by both the support team and AI agents.',
+        proof: 'I shipped the first two milestones of the ticketing module and the foundation of the hybrid search. In internal testing — another developer on the team has already shipped a feature end to end on the same foundation.',
+        tags: ['Modular Laravel', 'Multi-tenant PostgreSQL', 'Vue 3 + Inertia', 'Hybrid search / RAG'],
+        roles: 'Architecture · Backend · Frontend · AI',
       },
     ],
   },
@@ -422,7 +444,7 @@ export const en: SiteContent = {
   about: {
     eyebrow: 'About',
     paragraphs: [
-      'Software engineer focused on SaaS platforms in complex domains. I work with Laravel, Vue 3 and multi-tenant PostgreSQL on products running in production across public procurement, municipal government, tax, payroll and citizen services.',
+      'Software engineer focused on SaaS platforms in complex domains. I work with Laravel, Vue 3 and multi-tenant PostgreSQL on products serving public procurement, municipal government, tax, payroll and citizen services — from the app already in production to the ones in client staging and internal testing.',
       'I got here by a crooked path. I was a personal trainer, lived abroad between 2014 and 2018 working in hostels in Chile and Norway, and led a CrossFit coaching team for three years. I joined the company I am at today in 2021, in an administrative role; I moved into development in 2024 and now I lead its innovation team.',
       'Coaching people teaches something that carries straight into software: you answer for someone else\'s outcome, and a lapse in judgement has physical consequences. That is where my discomfort comes from with a system that passes its tests but that nobody has ever opened on screen.',
       'I consolidated products that started out separate into one coherent technical platform: the same modular architecture, the same tenant isolation model, the same design system, the same quality gates. That is what lets me ship a new feature in any of them without relearning the terrain.',

@@ -70,7 +70,7 @@ export const cvPt: CvContent = {
   ],
   summaryTitle: 'Perfil',
   summary:
-    'Engenheira de software full-stack e coordenadora de inovação. Construo plataformas SaaS multi-tenant para domínios regulados — compras públicas, gestão municipal, tributário, folha de pagamento e serviços ao cidadão — com Laravel, Vue 3 e PostgreSQL isolado por schema. Nos últimos nove meses autorei cerca de 3.700 commits em cinco produtos, três em produção e dois em homologação. Lidero a adoção de agentes de IA integrados ao produto via MCP, com as mesmas permissões e o mesmo escopo de tenant da interface gráfica.',
+    'Engenheira de software full-stack e coordenadora de inovação. Construo plataformas SaaS multi-tenant para domínios regulados — compras públicas, gestão municipal, tributário, folha de pagamento e serviços ao cidadão — com Laravel, Vue 3 e PostgreSQL isolado por schema. Nos últimos nove meses autorei cerca de 4.250 commits em nove repositórios da empresa. Dos cinco produtos da plataforma, um já está em produção com cliente, dois em homologação e dois em teste interno. Lidero a adoção de agentes de IA integrados ao produto via MCP, com as mesmas permissões e o mesmo escopo de tenant da interface gráfica.',
   experienceTitle: 'Experiência',
   roles: [
     {
@@ -80,7 +80,8 @@ export const cvPt: CvContent = {
       location: 'Remoto',
       bullets: [
         'Lidero a adoção de IA na empresa: agentes integrados aos produtos via MCP, operando dados reais sob o escopo de permissão de cada tenant — não camada de chat acoplada por fora.',
-        'Projetei a consolidação de quatro servidores MCP em um. Os anteriores eram cópias do mesmo scaffold, com dezenas de tools duplicadas, o que já havia produzido o mesmo defeito em três produtos ao mesmo tempo. O unificado resolve a conexão por produto em tempo de execução e substitui os três provando cobertura caso a caso antes de desligar cada um.',
+        'Criei o harness de desenvolvimento assistido por IA usado pelo time — regras e hooks versionados no repositório e o fluxo spec-driven (spec, design, tasks atômicas, TDD e verificação independente) hoje replicado em outros times.',
+        'Projetei a consolidação de três servidores MCP redundantes em um só, unificando cerca de 54 tools duplicadas. Os anteriores eram cópias do mesmo scaffold, o que já havia produzido o mesmo defeito em três produtos ao mesmo tempo. O unificado resolve a conexão por produto em tempo de execução, provando cobertura caso a caso antes de desligar cada um.',
         'Supervisiono estagiário e mantenho a documentação de onboarding dos produtos, escrita para quem chega sem contexto.',
         'Estabeleci gates de qualidade em CI — análise estática com baseline medida, formatação e suíte E2E cobrindo navegação, CRUD, permissões e regressão — e o registro de decisões de arquitetura em ADR com supersessão explícita.',
       ],
@@ -91,12 +92,14 @@ export const cvPt: CvContent = {
       period: 'abr/2024 – jan/2026',
       location: 'Remoto',
       bullets: [
-        'Cinco produtos multi-tenant (três em produção, dois em homologação) sobre a mesma base técnica: SaaS B2G de licitações, ERP de gestão municipal, fiscalização tributária, hub de suporte e aplicativo mobile, mais o template base compartilhado.',
+        'Cinco produtos multi-tenant (um em produção, dois em homologação com cliente e dois em teste interno) sobre a mesma base técnica: SaaS B2G de licitações, ERP de gestão municipal, fiscalização tributária, hub de atendimento com IA e aplicativo mobile, mais o template base compartilhado.',
         'Arquitetura multi-tenant com isolamento por schema em PostgreSQL, RBAC global e local, provisionamento de novos tenants e navegação agregada por módulo.',
-        'Consolidei os módulos do produto de licitações de sete para cinco, provando paridade de 345 rotas, sem re-executar nenhuma migration nos cinco schemas e com 979 testes verdes.',
+        'No ERP de gestão municipal, entreguei os módulos de orçamento e frota de ponta a ponta, corrigi uma falha grave de autorização entre clientes na camada de RBAC e tornei a trilha de auditoria do banco imutável a DELETE, UPDATE e TRUNCATE.',
+        'Consolidei os módulos do produto de licitações de quatro para dois, provando paridade de 345 rotas e sem re-executar nenhuma migration nos cinco schemas.',
         'Publiquei aplicativo municipal em iOS e Android com Vue 3 e Capacitor — agendamento de espaços públicos, táxi municipal com suporte offline, contra-cheque com IRRF e extrato previdenciário, índices financeiros e portal de água e esgoto.',
         'Criei e mantenho o design system em Vue 3, distribuído como pacote npm privado versionado por semver e consumido por três produtos.',
-        'Implementei o domínio de fiscalização tributária: cruzamento de notas fiscais de serviço, recibos sem nota correspondente e extrato PGDAS da Receita Federal num cubo de faturamento com medidas propagadas.',
+        'Implementei o domínio de fiscalização tributária: cruzamento de notas fiscais de serviço, recibos sem nota correspondente e extrato PGDAS da Receita Federal num cubo de faturamento com medidas propagadas; recriei o catálogo de atividades da Receita Federal para o layout vigente, corrigindo um bug que inflava ou mascarava a receita apurada.',
+        'Construí o hub de atendimento e conhecimento da empresa: fila de chamados com classificação e SLA, wiki interna e um motor de busca híbrida (RAG) sobre manuais e documentação técnica.',
       ],
     },
     {
@@ -149,7 +152,7 @@ export const cvPt: CvContent = {
     { title: 'Frontend', items: 'Vue 3 · TypeScript estrito · Inertia.js · Tailwind · Design system próprio' },
     { title: 'Mobile', items: 'Capacitor (iOS e Android) · Pinia · Vue Router · Offline-first' },
     { title: 'Infra e qualidade', items: 'Docker · CI/CD · Playwright · Análise estática · ADRs' },
-    { title: 'IA', items: 'MCP Servers · Agentes integrados ao produto · Tool use sob escopo do tenant' },
+    { title: 'IA', items: 'MCP Servers · Agentes integrados ao produto · Tool use sob escopo do tenant · Busca híbrida (RAG)' },
   ],
   languagesTitle: 'Idiomas',
   languages: 'Português — nativo · Inglês — fluente · Espanhol — iniciante',
@@ -174,7 +177,7 @@ export const cvEn: CvContent = {
   ],
   summaryTitle: 'Profile',
   summary:
-    'Full-stack software engineer and innovation lead. I build multi-tenant SaaS platforms for regulated domains — public procurement, municipal government, tax, payroll and citizen services — with Laravel, Vue 3 and schema-isolated PostgreSQL. Over the last nine months I authored roughly 3,700 commits across five products, three in production and two in staging. I lead the adoption of AI agents built into the product through MCP, with the same permissions and the same tenant scope as the graphical interface.',
+    'Full-stack software engineer and innovation lead. I build multi-tenant SaaS platforms for regulated domains — public procurement, municipal government, tax, payroll and citizen services — with Laravel, Vue 3 and schema-isolated PostgreSQL. Over the last nine months I authored roughly 4,250 commits across nine company repositories. Of the five products on the platform, one is already in production with a client, two are in client staging and two are in internal testing. I lead the adoption of AI agents built into the product through MCP, with the same permissions and the same tenant scope as the graphical interface.',
   experienceTitle: 'Experience',
   roles: [
     {
@@ -184,7 +187,8 @@ export const cvEn: CvContent = {
       location: 'Remote',
       bullets: [
         'I lead AI adoption across the company: agents built into the products through MCP, operating on real data under each tenant permission scope — not a chat layer bolted on the side.',
-        'I designed the consolidation of four MCP servers into one. The previous ones were copies of the same scaffold with dozens of duplicated tools, which had already produced the same defect in three products at once. The unified server resolves the connection per product at runtime and replaces all three, proving coverage case by case before retiring each one.',
+        'I built the AI-assisted development harness the team uses — rules and hooks versioned in the repository, and the spec-driven flow (spec, design, atomic tasks, TDD and independent verification) now replicated across other teams.',
+        'I designed the consolidation of three redundant MCP servers into one, unifying roughly 54 duplicated tools. The previous ones were copies of the same scaffold, which had already produced the same defect in three products at once. The unified server resolves the connection per product at runtime, proving coverage case by case before retiring each one.',
         'I supervise an intern and maintain the onboarding documentation for the products, written for people arriving without context.',
         'I established quality gates in CI — static analysis with a measured baseline, formatting, and an E2E suite covering navigation, CRUD, permissions and regressions — plus architecture decisions recorded as ADRs with explicit supersession.',
       ],
@@ -195,12 +199,14 @@ export const cvEn: CvContent = {
       period: 'Apr 2024 – Jan 2026',
       location: 'Remote',
       bullets: [
-        'Five multi-tenant products (three in production, two in staging) on the same technical foundation: a B2G tendering SaaS, a municipal government ERP, tax auditing, a support hub and a mobile app, plus the shared base template.',
+        'Five multi-tenant products (one in production, two in client staging and two in internal testing) on the same technical foundation: a B2G tendering SaaS, a municipal government ERP, tax auditing, an AI-powered support hub and a mobile app, plus the shared base template.',
         'Multi-tenant architecture with schema-level isolation in PostgreSQL, global and local RBAC, tenant provisioning and module-aggregated navigation.',
-        'Consolidated the tendering product from seven modules down to five, proving parity across 345 routes, with no migration re-run on any of the five schemas and 979 tests green.',
+        'On the municipal government ERP, shipped the budgeting and fleet modules end to end, fixed a serious cross-tenant authorization flaw in the RBAC layer and made the database audit trail immutable to DELETE, UPDATE and TRUNCATE.',
+        'Consolidated the tendering product from four business modules down to two, proving parity across 345 routes with no migration re-run on any of the five schemas.',
         'Shipped a municipal app on iOS and Android with Vue 3 and Capacitor — public venue booking, municipal taxi with offline support, payslips with income tax and social security statements, financial indicators and a water and sewage portal.',
         'Built and maintain the Vue 3 design system, shipped as a semver-versioned private npm package consumed by three products.',
-        'Implemented the tax auditing domain: cross-referencing service invoices, receipts with no matching invoice and federal tax authority statements into a revenue cube with propagated measures.',
+        'Implemented the tax auditing domain: cross-referencing service invoices, receipts with no matching invoice and federal tax authority statements into a revenue cube with propagated measures; rebuilt the federal tax authority activity catalogue for the current layout, fixing a bug that inflated or masked reported revenue.',
+        'Built the company support and knowledge hub: a ticket queue with classification and SLAs, an internal wiki and a hybrid search engine (RAG) over manuals and technical documentation.',
       ],
     },
     {
@@ -253,7 +259,7 @@ export const cvEn: CvContent = {
     { title: 'Frontend', items: 'Vue 3 · Strict TypeScript · Inertia.js · Tailwind · In-house design system' },
     { title: 'Mobile', items: 'Capacitor (iOS and Android) · Pinia · Vue Router · Offline-first' },
     { title: 'Infra and quality', items: 'Docker · CI/CD · Playwright · Static analysis · ADRs' },
-    { title: 'AI', items: 'MCP Servers · Agents built into the product · Tool use scoped to the tenant' },
+    { title: 'AI', items: 'MCP Servers · Agents built into the product · Tool use scoped to the tenant · Hybrid search (RAG)' },
   ],
   languagesTitle: 'Languages',
   languages: 'Portuguese — native · English — fluent · Spanish — beginner',
