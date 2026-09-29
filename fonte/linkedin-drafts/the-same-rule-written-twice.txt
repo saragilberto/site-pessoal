@@ -1,0 +1,13 @@
+Um CLAUDE.md pode dizer "nunca atribua esse campo direto, sempre passe pelo serviço X". Um hook PreToolUse pode bloquear a escrita antes dela acontecer.
+
+Parecem a mesma regra. Não são o mesmo tipo de objeto.
+
+Escrevi as duas versões lado a lado, testadas contra o mesmo caso de violação: a função que só lê a frase em prosa é estruturalmente incapaz de retornar qualquer coisa além de "não aplicado" — não é um bug, é a implementação honesta do que texto consegue fazer sozinho. A outra recebe o write antes do fato, com path e conteúdo, e nega.
+
+Mesmo teste, mesmo fixture, nos dois lados. Só um passa.
+
+O exercício que fica: pegar uma frase do seu próprio CLAUDE.md e tentar escrevê-la como função que recebe a escrita antes que ela aconteça. Se não der — se a checagem precisar inferir intenção —, isso também é informação.
+
+https://saracgpereira.com/writing/the-same-rule-written-twice/
+
+#ClaudeCode #AgentHarness
