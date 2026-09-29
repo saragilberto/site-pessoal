@@ -3,7 +3,7 @@ title: 'The same rule, written twice: one version literally cannot block anythin
 description: 'Never assign Invoice.discountPercent directly — route it through TaxRuleService. Writing that rule as CLAUDE.md prose and as a PreToolUse hook, side by side, with a function structurally incapable of returning anything but "not enforced" for the text version, and a test proving only the hook stops the write.'
 pubDate: 2026-10-01
 tags: ['agent-harness-cookbook', 'Claude Code', 'hooks', 'testing']
-draft: true
+draft: false
 ---
 
 `gate-shell` argued that a rule in `CLAUDE.md` is a suggestion and a
