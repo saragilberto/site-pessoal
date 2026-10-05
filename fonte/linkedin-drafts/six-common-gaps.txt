@@ -1,0 +1,12 @@
+Uma configuração de .claude/ que funcionou no dia um não continua funcionando sozinha.
+
+Escrevi um scanner para seis lacunas que se repetem: hook sem teste, permissão Bash(*), .gitignore sem .env e mais três.
+
+O caso que mais me ensinou: um arquivo de fixture sumiu do git por causa de uma regra de ignore, e a suíte continuou verde, porque rodava só na minha cópia de trabalho.
+
+A lição: rode os testes em um clone limpo antes de confiar no verde.
+
+Artigo completo, com as seis checagens e as limitações:
+https://saracgpereira.com/writing/six-common-gaps/
+
+#ClaudeCode #Testes
