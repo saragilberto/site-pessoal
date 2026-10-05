@@ -1,9 +1,9 @@
 ---
 title: 'Six common gaps, and the audit script that hit one of its own'
 description: 'A .claude/ setup accumulates gaps nobody goes back to check for — a hook with no test, a permission that allows everything, a .gitignore that never learned about .env. Building the scanner for it, one of the six fixture files it needs to prove gap six disappeared into git silently, ignored by a rule the fixture itself was demonstrating.'
-pubDate: 2026-10-06
+pubDate: 2026-10-05
 tags: ['agent-harness-cookbook', 'Claude Code', 'testing', 'tooling']
-draft: true
+draft: false
 ---
 
 A team adopts Claude Code, writes a `CLAUDE.md`, adds a hook, feels done.
