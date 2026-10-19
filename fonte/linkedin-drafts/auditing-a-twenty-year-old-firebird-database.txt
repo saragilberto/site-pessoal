@@ -1,0 +1,7 @@
+Um banco Firebird de vinte anos não tem comentário, não tem foreign key declarada. A única documentação que resta é a convenção de nome de coluna — e só isso.
+
+Escrevi sobre como ler esse tipo de schema antes de propor qualquer mudança: duas heurísticas simples (coluna *_ID sem constraint, CHAR(1) como flag disfarçado de boolean) e um hook que garante que a conexão usada na leitura seja mecanicamente incapaz de escrever enquanto o inventário não é validado.
+
+O ponto não é a heurística em si, é a ordem: ler primeiro, com humildade sobre o que é só um indício, e só depois deixar algo propor mudança — por uma conexão que é read-only de fato, não por acordo verbal.
+
+https://saracgpereira.com/writing/auditing-a-twenty-year-old-firebird-database/
