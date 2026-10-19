@@ -1,0 +1,13 @@
+Movi o build do frontend pra dentro de um estágio Docker e dei deploy no mesmo dia. Horas depois, o deploy travou no mesmo ponto de antes.
+
+O heap cap que eu tinha reduzido (--max-old-space-size) controla só a memória que o V8 gerencia. O minificador nativo do bundler e o motor de CSS alocam memória fora desse heap -- aparece como RSS do processo, fora do que o flag cobre.
+
+Baixar o número de 1536MB pra 768 não mudou nada, porque o gargalo nunca esteve onde o flag atua.
+
+A correção não foi ajustar o valor de novo. Foi reverter a decisão inteira e voltar ao build fora da imagem.
+
+Escrevi sobre a diferença entre um número herdado de outra decisão e um fato verificado na VM em questão -- e por que "validei localmente" às vezes não prova nada.
+
+https://saracgpereira.com/writing/node-options-is-not-a-memory-budget/
+
+#NodeJS #Docker #Infraestrutura
