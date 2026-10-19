@@ -1,9 +1,9 @@
 ---
 title: 'A column named TEN_ID is a relationship, not a coincidence'
 description: 'A twenty-year-old Firebird schema has no comments and no declared foreign keys — the naming convention is the only thing that still says how the tables relate. Two heuristics for a read-only inventory pass, and a hook that reuses gate-shell.mjs verbatim, scoped to one guarantee: no write reaches the legacy database while the inventory runs.'
-pubDate: 2026-10-16
+pubDate: 2026-10-19
 tags: ['agent-harness-cookbook', 'Claude Code', 'hooks', 'legacy systems']
-draft: true
+draft: false
 ---
 
 Every example in this cookbook so far assumes the codebase already has some
