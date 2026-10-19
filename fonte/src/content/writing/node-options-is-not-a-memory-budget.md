@@ -1,9 +1,9 @@
 ---
 title: 'A heap flag is not a memory budget: reverting a Docker build decision hours after shipping it'
 description: 'Moving a frontend build into a Docker image assumed a VM had 8GB of RAM. It had 1.7GB. Halving the V8 heap did not fix the hang, because the native minifier allocates memory outside that heap entirely — the actual fix was reverting to a single build path, not a smaller number.'
-pubDate: 2026-09-08
+pubDate: 2026-10-19
 tags: ['infra', 'Docker', 'Node.js', 'architecture']
-draft: true
+draft: false
 ---
 
 The build had been running on the VM's host for a while — a known debt, since
