@@ -1,0 +1,11 @@
+"O banco está lento" não é um diagnóstico, é o início de uma conversa.
+
+Depois de um curso sobre escalar bancos de dados, o que ficou não foi nenhuma técnica isolada, mas o formato: uma escada de sete degraus, do índice certo até sharding, onde cada degrau resolve um problema real e cobra um preço específico em complexidade permanente.
+
+Escrevi sobre essa escada e a pergunta que vale fazer antes de subir cada degrau: eu esgotei o degrau de baixo, ou só pulei ele?
+
+Spoiler: a maioria dos sistemas nunca precisa chegar no topo.
+
+https://saracgpereira.com/writing/the-database-scaling-ladder/
+
+#PostgreSQL #SystemDesign #Bancodedados
