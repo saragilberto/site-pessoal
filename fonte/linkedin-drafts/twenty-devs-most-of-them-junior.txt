@@ -1,0 +1,9 @@
+Um CLAUDE.md pode pedir pra um dev junior "ler com atenção antes de aceitar uma sugestão". Isso não torna a leitura real — é uma frase num contexto, não algo que acontece na hora da decisão.
+
+No sexto exemplo do agent-harness-cookbook eu tentei forçar uma coisa bem mais barata: antes de escrever numa service class ou numa migration, um hook de PreToolUse exige que já exista uma linha de justificativa.
+
+E essa justificativa é lida do transcript real da sessão — não de um campo que quem chama o hook poderia preencher com qualquer coisa só pra passar.
+
+O limite mínimo não avalia se a razão é boa. Só força o ato de escrever uma antes de aceitar a sugestão. Pouco, mas é mais do que uma instrução que ninguém é obrigado a seguir.
+
+https://saracgpereira.com/writing/twenty-devs-most-of-them-junior/
