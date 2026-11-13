@@ -1,0 +1,13 @@
+Um grupo de estudantes do IF Barbacena visitou nosso escritório e a pergunta que me fizeram foi direta: se os agentes escrevem o código, o que sobra para as pessoas fazerem?
+
+A resposta é o loop ao redor do código, não o código.
+
+No nosso fluxo, cada agente tem uma função só, e nenhum deles verifica o próprio trabalho. Quem implementa não é quem revisa.
+
+"Eu verifiquei" só vale com teste, arquivo e linha. Sem evidência, não é uma afirmação, é só vibe.
+
+E toda mudança que vai para produção passa por aprovação humana — isso não é opcional.
+
+Escrevi sobre as três regras desse processo e sobre as quatro habilidades que, na minha opinião, continuam valendo mesmo com agentes escrevendo boa parte do código.
+
+https://saracgpereira.com/writing/the-agent-that-writes-does-not-check/
