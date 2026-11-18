@@ -1,0 +1,11 @@
+Um orquestrador que coordena sessões de agentes em vários repositórios ao mesmo tempo — e nunca tem permissão para publicar nada.
+
+Ele escreve a briefing e o spec de cada repositório, espera minha aprovação e só então dispara o trabalho em ondas: primeiro o que é base (API, pacote compartilhado, design system), depois o que depende disso.
+
+A parte mais trabalhosa não foi a orquestração em si. Foi decidir para qual sessão mandar a mensagem quando existe mais de uma sessão aberta para o mesmo repositório. A regra: ele nunca escolhe por conta própria. Se há ambiguidade, para e pergunta.
+
+Em um teste real, três repositórios receberam a mensagem certa. Dois pararam, porque cada um tinha duas sessões abertas. Era exatamente o comportamento esperado.
+
+Publicar, marcar tag, abrir PR — isso continua comigo, com autorização explícita a cada etapa.
+
+https://saracgpereira.com/writing/an-orchestrator-that-dispatches-and-never-publishes/
