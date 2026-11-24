@@ -1,0 +1,82 @@
+Título: Um painel local onde cada repositório é um bonequinho numa mesa (e por que o botão de review nunca aprova nada)
+
+Quando um orquestrador despacha trabalho para uma sessão de agente por repositório, surge um problema novo: você perde a visão geral. Quem está no meio de uma task? Quem espera por mim? Quais PRs estão sem review há dois dias? O bot de atendimento em produção está de pé?
+
+Eu resolvia trocando de terminal e olhando. Com mais de três ou quatro repos isso para de funcionar, e falha em silêncio: o repo que precisa de você é exatamente o que você não está olhando.
+
+Então construí um painel local (o vídeo acima mostra ele funcionando, em modo anônimo). Cada repositório é um bonequinho numa mesa. A metáfora é boba de propósito: uma fileira de mesas se lê mais rápido que uma tabela de status, e eu percebo uma etiqueta vermelha antes de perceber uma célula mudando de texto.
+
+## O layout segue o grafo de dependências
+
+As mesas ficam em linhas chamadas ondas, calculadas a partir do mesmo arquivo de dependências que o orquestrador já usa. Quem não depende de ninguém fica na onda 1, quem depende deles na onda 2, e assim por diante. É a mesma ordem em que as releases saem, então o painel não inventa uma segunda fonte de verdade. A produção ganha uma fileira própria, com contorno tracejado, para ninguém confundir bot com repositório.
+
+## O que cada bonequinho conta
+
+- Em task: sessão trabalhando, subagente rodando, arquivos alterados ou branch de trabalho sem PR. Fica na mesa, com a tela acesa.
+- Aguardando: PR esperando review ou repo parado. Passeia pela cantina, sofá ou mural, com no máximo três fora da mesa. Sem esse limite, um dia calmo vira multidão no sofá e a mesa que importa deixa de se destacar.
+- Pede atenção: a sessão precisa de uma resposta minha. Etiqueta vermelha e um botão que leva direto ao terminal dela.
+- Reunião: o orquestrador acabou de gravar um briefing ou despachar tasks, e os repos envolvidos vão para a sala de reuniões.
+
+Clicar abre o detalhe: branch, arquivos alterados, última tag, PRs com decisão de review e checks, sessões e subagentes.
+
+## De onde vêm os dados
+
+Nada exótico, e esse é o ponto.
+
+- Arquivo de dependências: lista de repos, ondas e nomes das sessões.
+- git local: branch, estado da árvore e última tag. A pasta de configuração do agente é ignorada ao decidir se a árvore está suja; senão todo repo pareceria modificado o tempo todo.
+- GitHub CLI: PRs abertas, decisão de review e resultado dos checks.
+- Hooks do agente: sessões, subagentes e despachos, gravados num log local de eventos. O registro é propositalmente magro: nome do repo, ids curtos e tipo do evento. Nunca prompt, resposta ou comando.
+- Um arquivo de status dos bots de produção (mais abaixo).
+
+Sem os hooks o painel continua funcionando e deduz o estado só por git e GitHub. Isso importa para confiança: um painel que fica em branco quando falta uma entrada ensina você a parar de olhar para ele.
+
+## Aviso de PR e review que não consegue aprovar
+
+Toda PR aberta, que não seja rascunho e esteja sem decisão de review, dispara um aviso: chip no cabeçalho, selo pulsando no bonequinho e contador no título da aba, para aparecer mesmo com a aba em segundo plano.
+
+Ao lado há um botão "Enviar para review", que inicia uma sessão headless do agente na pasta do repo. As restrições são a parte interessante:
+
+1. O revisor lê o diff, confere com o arquivo de instruções do próprio repo e procura bugs, riscos de segurança e de isolamento multi-tenant, e falta de testes.
+2. As ferramentas são só de leitura: ver a PR, o diff e os checks, mais git log, diff e show.
+3. O relatório fica salvo localmente, com botões para ver ou refazer.
+4. Publicar como comentário é um passo separado e opcional, com confirmação em dois cliques, e o comentário diz que é um review automático.
+
+Os limites são números, não intenções: teto de gasto e 20 minutos por review, no máximo três reviews ao mesmo tempo. E ele nunca aprova nem pede mudanças. Essas duas ações pesam no processo de um time, e eu não quero um revisor automático exercendo elas. Nada chega ao GitHub sem dois cliques meus.
+
+## Bots de produção sem cruzar a fronteira de usuário
+
+Os agentes de atendimento rodam em containers sob outro usuário da mesma máquina, que o painel não enxerga diretamente. Em vez de abrir um buraco nessa fronteira, um pequeno exportador, que mora no repo do próprio bot, escreve a cada 30 segundos um arquivo de status numa pasta compartilhada. O painel lê esse arquivo e desenha um bonequinho por bot.
+
+- Atendendo: atividade nos últimos 5 minutos.
+- Online: container no ar, esperando mensagem.
+- Fora do ar: container parado ou sessão do agente caída dentro dele.
+- Sem sinal: arquivo com mais de 150 segundos, ou seja, o próprio exportador parou.
+
+"Sem sinal" é um estado distinto de propósito. Se o exportador morre e o painel continua mostrando o último "online", ele está mentindo. Mostrar os bots sem estado diz a verdade: eu não sei.
+
+O exportador só lê o runtime de containers e guarda estado. Nunca toca em conversas, prompts, mensagens, variáveis de ambiente ou segredos.
+
+## Três jeitos de abrir
+
+- Completo (para quem usa a máquina): escuta só em loopback e tem as ações: ir para o terminal, enviar para review, publicar como comentário.
+- Diretoria (acompanhamento na rede interna): mesma tela, sem nenhum botão de ação. Exige usuário e senha, não mostra relatórios de review e limita o "atualizar agora" a um a cada 15 segundos.
+- Gravação (vídeos e demonstrações): troca os nomes na tela. Produtos viram "produto 1, 2…" e bots viram "suporte 1, 2…". Os dados não mudam.
+
+O modo diretoria foi o que mais me fez pensar. Ele só sobe fora do loopback com a flag de somente leitura e com senha definida. Não existe jeito de subir exposto e com escrita habilitada por acidente. Ele também tem uma ressalva que prefiro escrever: a senha trafega em HTTP Basic, em texto puro na rede interna. A mitigação é usar uma senha que exista só para esse painel, e a correção de verdade é um proxy HTTPS na frente. Prefiro registrar a limitação a sugerir que o painel é mais blindado do que é.
+
+O modo gravação existe porque eu queria mostrar a ferramenta em público sem mostrar nomes reais de produtos ou bots. A anonimização é aplicada na hora de renderizar, então a demo e a coisa real passam pelo mesmo caminho de código.
+
+## O que ele nunca faz
+
+Merge, tag ou publish, deploy, push, aprovar PR, escrever na aba do terminal. Essa lista é o design. As únicas ações locais são trazer o Terminal para a frente e rodar o review em modo leitura. Os endpoints POST aceitam só pedidos locais, só nomes de repo que existem no arquivo de dependências e só PRs que o GitHub CLI listou como abertas. Um endpoint que aceita nome de repo e número de PR arbitrários é uma ferramenta esperando ser apontada para o lugar errado.
+
+É a mesma regra do orquestrador: o agente e a ferramenta em volta dele podem observar, resumir e preparar, mas o passo irreversível ou voltado para fora é de uma pessoa.
+
+## Sendo honesta sobre o que é
+
+É um script Python pequeno com um arquivo de testes, não um produto. Não tem persistência além de um log de eventos, e o "escritório" é só uma renderização de estado que já existe no git, no GitHub e em alguns hooks. Nada nele é inteligente.
+
+O que mudou foi para onde vai minha atenção. Antes eu fazia polling de terminais. Agora olho uma tela, e o que precisa de mim é o que está vermelho, pulsando ou no título da aba. O custo de coordenar vários agentes é, em grande parte, o custo de saber qual deles precisa de você, e isso se mostra barato de construir quando o estado já está sendo registrado em algum lugar.
+
+Texto original em inglês: https://saracgpereira.com/writing/a-dashboard-where-every-repo-is-a-desk/

@@ -1,0 +1,22 @@
+Quando você tem um agente por repositório, o problema deixa de ser "fazer o trabalho" e vira "saber quem precisa de mim agora".
+
+Eu estava alternando entre terminais para descobrir isso. Não escala, e falha em silêncio: o repo que precisa de você é justamente o que você não está olhando.
+
+Então montei um painel local em que cada repositório é um bonequinho numa mesa. De relance dá para ver:
+
+- quem está em task (fica na mesa, tela acesa)
+- quem espera review (vai passear na cantina)
+- quem pede atenção (etiqueta vermelha, com botão direto para o terminal)
+- como estão os bots de produção, numa fileira separada
+
+As mesas ficam em "ondas" calculadas pelo arquivo de dependências, a mesma ordem em que as releases saem. Sem uma segunda fonte de verdade.
+
+O botão de review aciona um subagente que só lê o diff, com teto de custo e de tempo. Ele nunca aprova e nunca pede mudanças. Publicar o relatório como comentário é um passo à parte, com dois cliques de confirmação.
+
+Um detalhe de que eu gosto: se o exportador dos bots para de atualizar, o painel mostra "sem sinal" em vez de repetir o último "online". Mostrar "não sei" é melhor do que mostrar um estado velho como se fosse atual.
+
+O vídeo acima está no modo de gravação, que troca os nomes na tela por "produto 1", "suporte 2". Os dados são reais; os nomes, não.
+
+Merge, tag, deploy, push e aprovar PR continuam sendo ações humanas.
+
+Texto completo (em inglês): https://saracgpereira.com/writing/a-dashboard-where-every-repo-is-a-desk/
